@@ -1,0 +1,2788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ATI RN Nursing Exam Comprehensive Study Guide - EXAM MODE</title>
+        <style>
+                :root {
+                        --dark: #0d2b6b;
+                        --mid: #1a4ba8;
+                        --accent: #ffd700;
+                        --bg: #eef3ff;
+                        --border: #b8ccf0;
+                        --hover: #d8e6ff;
+                        --nav: #c0d0f0;
+                        --rat-bg: #dce8ff;
+                        --rat-border: #1a4ba8;
+                        --text: #061840;
+                }
+
+                * {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+                        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+                }
+
+                html {
+                        height: 100%;
+                }
+                body {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        height: 100%;
+                        height: 100dvh;
+                        width: 100vw;
+                        overflow: hidden;
+                }
+                @supports (-webkit-touch-callout: none) {
+                        body {
+                                height: -webkit-fill-available;
+                        }
+                }
+
+                .container {
+                        width: 100vw;
+                        height: 100%;
+                        background: var(--bg);
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+                        transition: background 0.4s;
+                }
+
+                .header {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        padding: 12px 24px;
+                        flex-shrink: 0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 70px;
+                        border-bottom: 4px solid var(--accent);
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .header h1 {
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                }
+
+                .header h1 span {
+                        background: var(--accent);
+                        color: var(--dark);
+                        font-size: 0.9rem;
+                        padding: 4px 12px;
+                        border-radius: 40px;
+                        font-weight: 600;
+                }
+
+                .subtitle {
+                        font-size: 0.85rem;
+                        opacity: 0.9;
+                        margin-top: 2px;
+                }
+
+                .counter {
+                        background: rgba(255, 255, 255, 0.15);
+                        padding: 6px 20px;
+                        border-radius: 60px;
+                        font-weight: 700;
+                        font-size: 1.1rem;
+                        border: 2px solid var(--accent);
+                }
+
+                .progress-container {
+                        width: 100%;
+                        height: 6px;
+                        background: var(--border);
+                        flex-shrink: 0;
+                }
+
+                .progress-bar {
+                        background: linear-gradient(90deg, var(--accent), var(--mid));
+                        height: 100%;
+                        width: 0%;
+                        transition: width 0.3s;
+                }
+
+                .main-content {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
+                        padding: 16px 24px;
+                        background: var(--bg);
+                        transition: background 0.4s;
+                }
+
+                .assessment-indicator {
+                        background: #fff;
+                        padding: 6px 18px;
+                        border-radius: 60px;
+                        display: inline-block;
+                        align-self: flex-start;
+                        margin-bottom: 12px;
+                        font-weight: 600;
+                        font-size: 0.9rem;
+                        color: var(--dark);
+                        border: 2px solid var(--accent);
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        transition: border-color 0.4s, color 0.4s;
+                }
+
+                .assessment-indicator i {
+                        background: var(--dark);
+                        color: white;
+                        padding: 2px 10px;
+                        border-radius: 40px;
+                        margin-right: 10px;
+                        font-style: normal;
+                        transition: background 0.4s;
+                }
+
+                .badge {
+                        background: var(--accent);
+                        color: var(--dark);
+                        font-size: 0.75rem;
+                        padding: 3px 8px;
+                        border-radius: 20px;
+                        margin-left: 10px;
+                        font-weight: 600;
+                }
+
+                .question-area {
+                        flex: 1;
+                        background: white;
+                        border-radius: 24px;
+                        padding: 20px;
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                        border: 2px solid var(--accent);
+                        overflow-y: auto;
+                        margin-bottom: 12px;
+                        display: flex;
+                        flex-direction: column;
+                        transition: border-color 0.4s;
+                }
+
+                .question-header {
+                        display: flex;
+                        gap: 15px;
+                        align-items: flex-start;
+                        margin-bottom: 20px;
+                }
+
+                .question-number {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.3rem;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .question-text {
+                        font-size: 1.2rem;
+                        line-height: 1.5;
+                        color: var(--text);
+                        font-weight: 600;
+                        flex: 1;
+                        transition: color 0.4s;
+                }
+
+                .options-container {
+                        display: grid;
+                        gap: 12px;
+                        margin-bottom: 12px;
+                }
+
+                .option {
+                        padding: 14px 18px;
+                        border: 2px solid var(--border);
+                        border-radius: 18px;
+                        cursor: pointer;
+                        transition: all 0.15s;
+                        background: white;
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        font-size: 1rem;
+                }
+
+                .option:hover {
+                        background: var(--hover);
+                        border-color: var(--mid);
+                }
+
+                .option-letter {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                        transition: all 0.15s;
+                }
+
+                .option.selected {
+                        background: #fffde7;
+                        border-color: var(--accent);
+                }
+
+                .option.selected .option-letter {
+                        background: var(--accent);
+                        color: var(--dark);
+                        border-color: var(--dark);
+                }
+
+                .option.correct {
+                        background: #c8e6c9;
+                        border-color: #2e7d32;
+                }
+
+                .option.correct .option-letter {
+                        background: #2e7d32;
+                        border-color: #1b5e20;
+                        color: white;
+                }
+
+                .option.incorrect {
+                        background: #ffcdd2;
+                        border-color: #c62828;
+                }
+
+                .option.incorrect .option-letter {
+                        background: #c62828;
+                        border-color: #8e1a1a;
+                        color: white;
+                }
+
+                .result-tag {
+                        display: inline-block;
+                        padding: 3px 12px;
+                        border-radius: 30px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        margin-left: 12px;
+                }
+
+                .result-tag.correct {
+                        background: #c8e6c9;
+                        color: #1b5e20;
+                        border: 1px solid #2e7d32;
+                }
+
+                .result-tag.incorrect {
+                        background: #ffcdd2;
+                        color: #b71c1c;
+                        border: 1px solid #c62828;
+                }
+
+                .rationale-bar {
+                        display: none;
+                        background: var(--rat-bg);
+                        border: 2px solid var(--rat-border);
+                        border-radius: 16px;
+                        padding: 14px 20px;
+                        margin-top: 12px;
+                        font-size: 1rem;
+                        color: var(--text);
+                        line-height: 1.6;
+                        flex-shrink: 0;
+                        animation: slideIn 0.2s ease;
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .rationale-bar.show {
+                        display: block;
+                }
+
+                .rationale-bar strong {
+                        display: block;
+                        color: var(--dark);
+                        font-size: 0.82rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.06em;
+                        margin-bottom: 6px;
+                        opacity: 0.75;
+                }
+
+                .selected-indicator {
+                        font-size: 0.85rem;
+                        color: var(--mid);
+                        margin-bottom: 6px;
+                }
+
+                .navigation {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px 20px;
+                        background: var(--nav);
+                        border-top: 2px solid var(--accent);
+                        flex-shrink: 0;
+                        height: 65px;
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .nav-buttons {
+                        display: flex;
+                        gap: 12px;
+                }
+
+                .btn {
+                        padding: 10px 24px;
+                        border: none;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        transition: all 0.15s;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 0.95rem;
+                        white-space: nowrap;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                .btn-primary {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                }
+
+                .btn-primary:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .btn-secondary {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                        opacity: 0.85;
+                }
+
+                .btn-secondary:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                        opacity: 1;
+                }
+
+                .btn-random {
+                        background: linear-gradient(145deg, var(--accent), #c8a000);
+                        color: var(--dark);
+                }
+
+                .btn-random:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                }
+
+                .btn-assessment {
+                        background: white;
+                        color: var(--dark);
+                        border: 2px solid var(--accent);
+                }
+
+                .btn-assessment:hover {
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                }
+
+                .btn-skip {
+                        background: white;
+                        color: var(--dark);
+                        border: 2px solid var(--border);
+                        margin-right: 8px;
+                }
+
+                .btn-skip:hover:not(:disabled) {
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                        border-color: var(--mid);
+                }
+
+                .btn-cancel {
+                        background: linear-gradient(145deg, #ef9a9a, #e57373);
+                        color: white;
+                        display: none;
+                }
+
+                .btn-cancel.show {
+                        display: flex;
+                }
+
+                .btn:disabled {
+                        opacity: 0.4;
+                        cursor: not-allowed;
+                        transform: none !important;
+                }
+
+                .modal-overlay {
+                        display: none;
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(0, 0, 0, 0.55);
+                        z-index: 200;
+                        align-items: center;
+                        justify-content: center;
+                        backdrop-filter: blur(3px);
+                }
+
+                .modal-overlay.open {
+                        display: flex;
+                }
+
+                .modal {
+                        background: white;
+                        border-radius: 28px;
+                        width: min(92vw, 700px);
+                        height: 88vh;
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+                        overflow: hidden;
+                        animation: modalPop 0.2s ease;
+                }
+
+                .modal-header {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        padding: 18px 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border-bottom: 3px solid var(--accent);
+                        flex-shrink: 0;
+                }
+
+                .modal-header h2 {
+                        font-size: 1.15rem;
+                        font-weight: 700;
+                }
+
+                .modal-close {
+                        background: rgba(255, 255, 255, 0.2);
+                        border: none;
+                        color: white;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: background 0.15s;
+                }
+
+                .modal-close:hover {
+                        background: rgba(255, 255, 255, 0.4);
+                }
+
+                .modal-search {
+                        padding: 14px 20px;
+                        border-bottom: 1px solid #eee;
+                        flex-shrink: 0;
+                }
+
+                .modal-search input {
+                        width: 100%;
+                        padding: 9px 16px;
+                        border: 2px solid var(--border);
+                        border-radius: 50px;
+                        font-size: 0.95rem;
+                        outline: none;
+                        transition: border-color 0.15s;
+                }
+
+                .modal-search input:focus {
+                        border-color: var(--mid);
+                }
+
+                .modal-body {
+                        flex: 1;
+                        overflow-y: auto;
+                        padding: 16px 20px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        min-height: 0;
+                }
+
+                .as-card {
+                        border: 2px solid #e0e0e0;
+                        border-radius: 16px;
+                        padding: 12px 16px;
+                        cursor: pointer;
+                        transition: all 0.15s;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        background: white;
+                }
+
+                .as-card:hover {
+                        border-color: var(--mid);
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .as-card.active {
+                        border-color: var(--accent);
+                        background: #fffde7;
+                }
+
+                .as-card.hidden {
+                        display: none !important;
+                }
+
+                .as-num {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        width: 38px;
+                        height: 38px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 700;
+                        font-size: 0.9rem;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                }
+
+                .as-info {
+                        flex: 1;
+                        min-width: 0;
+                }
+
+                .as-title {
+                        font-weight: 600;
+                        font-size: 0.82rem;
+                        color: #333;
+                        line-height: 1.3;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                }
+
+                .as-count {
+                        font-size: 0.72rem;
+                        color: #888;
+                        margin-top: 2px;
+                }
+
+                @keyframes slideIn {
+                        from {
+                                opacity: 0;
+                                transform: translateY(6px);
+                        }
+
+                        to {
+                                opacity: 1;
+                                transform: translateY(0);
+                        }
+                }
+
+                @keyframes modalPop {
+                        from {
+                                opacity: 0;
+                                transform: scale(0.92) translateY(20px);
+                        }
+
+                        to {
+                                opacity: 1;
+                                transform: scale(1) translateY(0);
+                        }
+                }
+
+                @media (max-width: 768px) {
+                        .header {
+                                height: auto;
+                                min-height: 70px;
+                                padding: 12px 14px;
+                        }
+
+                        .header>div:first-child {
+                                margin-right: 10px;
+                        }
+
+                        .header h1 {
+                                font-size: 1.1rem;
+                                flex-wrap: wrap;
+                                line-height: 1.3;
+                        }
+
+                        .header h1 span {
+                                font-size: 0.75rem;
+                                padding: 3px 8px;
+                                margin-top: 4px;
+                        }
+
+                        .subtitle {
+                                font-size: 0.75rem;
+                                margin-top: 6px;
+                                line-height: 1.3;
+                        }
+
+                        .counter {
+                                padding: 4px 10px;
+                                font-size: 0.9rem;
+                                white-space: nowrap;
+                        }
+
+                        .main-content {
+                                padding: 12px 14px;
+                        }
+
+                        .assessment-indicator {
+                                font-size: 0.8rem;
+                                padding: 8px 12px;
+                                white-space: normal;
+                                display: flex;
+                                flex-wrap: wrap;
+                                align-items: center;
+                                gap: 6px;
+                                max-width: 100%;
+                        }
+
+                        .assessment-indicator span#assessmentName {
+                                line-height: 1.3;
+                                flex: 1 1 100%;
+                                margin-top: 4px;
+                        }
+
+                        .question-area {
+                                padding: 16px;
+                        }
+
+                        .question-text {
+                                font-size: 1.05rem;
+                        }
+
+                        .question-number {
+                                width: 36px;
+                                height: 36px;
+                                font-size: 1.1rem;
+                        }
+
+                        .option {
+                                padding: 10px 14px;
+                                font-size: 0.9rem;
+                                gap: 12px;
+                        }
+
+                        .option-letter {
+                                width: 30px;
+                                height: 30px;
+                                font-size: 0.9rem;
+                        }
+
+                        .navigation {
+                                height: auto;
+                                flex-direction: column;
+                                padding: 12px 14px;
+                                gap: 10px;
+                        }
+
+                        .navigation>div {
+                                width: 100%;
+                                display: flex !important;
+                                flex-wrap: wrap;
+                                gap: 8px !important;
+                                justify-content: space-between;
+                        }
+
+                        .btn {
+                                padding: 8px 12px;
+                                font-size: 0.85rem;
+                                flex: 1 1 auto;
+                                justify-content: center;
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <div class="container">
+                <div class="header">
+                        <div>
+                                <h1>🩺 ATI RN Nursing Exam Comprehensive Study Guide <span>EXAM MODE</span></h1>
+                                <div class="subtitle">65 questions &middot; ATI RN Nursing Exam Comprehensive Study Guide</div>
+                        </div>
+                        <div class="counter" id="counter">1/65</div>
+                </div>
+                <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="main-content">
+                        <div class="assessment-indicator" id="assessmentDisplay">
+                                <i id="assessmentIcon">📘</i>
+                                <span id="assessmentName">ATI RN Nursing Exam Comprehensive Study Guide</span>
+                                <span class="badge" id="qTypeBadge">Single</span>
+                                <span id="resultTag" class="result-tag"></span>
+                        </div>
+                        <div class="question-area">
+                                <div class="question-header">
+                                        <div class="question-number" id="questionNumber">1</div>
+                                        <div class="question-text" id="question"></div>
+                                </div>
+                                <div class="options-container" id="options"></div>
+                                <div id="selectedCount" class="selected-indicator"></div>
+                                <div class="rationale-bar" id="rationaleBar"><strong>💡 Rationale:</strong><span
+                                                id="rationaleText"></span></div>
+                        </div>
+                </div>
+                <div class="navigation">
+                        <div class="nav-buttons">
+                                <button class="btn btn-secondary" id="prevBtn" onclick="previousCard()">← Prev</button>
+                                <button class="btn btn-random" onclick="randomCard()">🎲 Random</button>
+                                <button class="btn btn-assessment" onclick="openAssessmentModal()">📚
+                                        Assessment</button>
+                        </div>
+                        <div class="nav-buttons">
+                                <button class="btn btn-cancel" id="cancelBtn" onclick="cancelSelection()">✕
+                                        Clear</button>
+                                <button class="btn btn-skip" id="skipBtn" onclick="skipCard()">⏭ Skip</button>
+                                <button class="btn btn-primary" id="nextBtn" onclick="nextCard()">Next →</button>
+                        </div>
+                </div>
+        </div>
+
+        <div class="modal-overlay" id="chapterModal">
+                <div class="modal">
+                        <div class="modal-header">
+                                <h2>📚 Select a Assessment</h2>
+                                <button class="modal-close" onclick="closeAssessmentModal()">✕</button>
+                        </div>
+                        <div class="modal-search">
+                                <input type="text" id="chSearch" placeholder="🔍  Search chapters..."
+                                        oninput="filterAssessments(this.value)" />
+                        </div>
+                        <div class="modal-body" id="assessmentGrid"></div>
+                </div>
+        </div>
+
+        <script>
+                (function () {
+                        var currentQuestion = 0;
+                        var selectedOptions = [];
+                        var answered = false;
+
+                        var questions = [
+    {
+        "q": "A nurse is teaching about denture care to the partner of a client who is unable to perform oral hygiene. Which of the following should the nurse include in the teaching?",
+        "opts": [
+            "Wipe dentures before storing them in a dry container at night.",
+            "Wrap gloved fingers with gauze to remove dentures.",
+            "Floss dentures as part of daily cleaning.",
+            "Use a washcloth to clean the denture surfaces."
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\nWiping dentures before storing them in a dry container at night is not advisable, as it may cause the dentures to crack or warp. Dentures should be soaked in water or a denture cleanser solution overnight to keep them moist and prevent them from losing their shape.\nWrapping gloved fingers with gauze to remove dentures is not a standard practice. Dentures should be removed carefully by rocking them slightly to break the seal with the gums. Using gauze is unnecessary and may not be as effective or safe for the dentures or the oral tissues.\nFlossing dentures is not necessary, as dentures do not have spaces between the teeth where plaque and food particles can accumulate. Flossing dentures may damage the denture material or cause it to loosen.\nDentures should be cleaned with a soft material to prevent scratches or damage. A washcloth is gentle enough to clean the denture surfaces without causing harm.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 1
+    },
+    {
+        "q": "A nurse is teaching a parent about recommended protein intake for a toddler. The nurse should identify that which of the following food selections is equivalent to 1 oz of protein?",
+        "opts": [
+            "1 slice of bread",
+            "2 tbsp peanut butter",
+            "1 scrambled egg",
+            "1/2 cup peas"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\n1 slice of bread is considered a grain serving, not a protein serving. Bread contains some protein but is not equivalent to 1 oz of protein in the context of dietary guidelines.\n2 tablespoons of peanut butter is equivalent to 1 oz of protein according to the USDA MyPlate guidelines. Peanut butter is a good source of protein and healthy fats for toddlers.\n1 scrambled egg is also equivalent to 1 oz of protein. However, 2 tbsp of peanut butter is the correct answer here as it is the most commonly cited equivalence in dietary guidelines for toddlers.\n1/2 cup of peas contains some protein but is primarily considered a vegetable serving, not equivalent to 1 oz of protein in standard dietary guidelines.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 2
+    },
+    {
+        "q": "A nurse is caring for a client who is receiving a continuous NG tube feeding and is experiencing frequent diarrhea. Which of the following actions should the nurse take?",
+        "opts": [
+            "Recommend a low-calorie formula.",
+            "Chill formula before administration.",
+            "Slow the rate of the feeding.",
+            "Change the infusion tubing every 48 hr."
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nRecommending a low-calorie formula is not indicated for diarrhea. Low-calorie formulas are usually high in osmolality and can cause more water to be drawn into the intestinal lumen, potentially worsening diarrhea.\nChilling formula before administration is not recommended, as cold formula can cause abdominal cramping, discomfort, and diarrhea. Formula should be at room temperature before administration.\nSlowing the rate of the feeding is the appropriate action, as rapid infusion can cause osmotic diarrhea by delivering too much formula to the intestine too quickly. Reducing the rate allows the intestine more time to absorb the nutrients and fluids.\nChanging the infusion tubing every 48 hr is not sufficient to prevent diarrhea. The infusion tubing should be changed every 24 hr or with each new container of formula to reduce the risk of bacterial contamination and infection.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 3
+    },
+    {
+        "q": "A nurse is planning care for a client who is at risk for aspiration due to a stroke. When assisting the client during mealtime, which of the following actions should the nurse plan to take?",
+        "opts": [
+            "Use a syringe to give the client fluids.",
+            "Tilt the client's head forward when swallowing.",
+            "Schedule physical therapy directly before mealtime.",
+            "Encourage the client to complete the meal within 15 min."
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\nUsing a syringe to give the client fluids is not a safe method, as it can cause the fluids to enter the airway too quickly and cause aspiration. The nurse should use a spoon or a cup to give the client fluids, and thicken them if needed to make them easier to swallow.\nTilting the client's head forward when swallowing is the correct action. This chin-tuck position helps close the airway and direct food or liquid to the esophagus, reducing the risk of aspiration. It narrows the entrance to the trachea and widens the esophageal opening.\nScheduling physical therapy directly before mealtime is not advisable, as it can cause fatigue that may increase the risk of aspiration. The client should be rested and alert during meals to reduce the risk of aspiration.\nEncouraging the client to complete the meal within 15 min is not appropriate, as rushing the client during meals can increase the risk of aspiration. The client should be given adequate time to eat slowly and carefully.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 4
+    },
+    {
+        "q": "A nurse is preparing to infuse 1,000 ml of a total parenteral nutrition solution IV over 24 hr. The nurse should set the IV pump to deliver how many ml/hr?",
+        "opts": [],
+        "correct": [],
+        "rat": "Correct Answer: 42 ml/hr\nCalculation: 1,000 mL ÷ 24 hr = 41.67 mL/hr, which rounds to 42 mL/hr.\nThe nurse divides the total volume by the total time to calculate the infusion rate. This ensures that the TPN solution is delivered at a constant and controlled rate over the prescribed time period.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 5
+    },
+    {
+        "q": "A nurse is teaching a client who has diarrhea about replacement of fluid and electrolytes. Which of the following statements should the nurse include in the teaching?",
+        "opts": [
+            "\"Suck on sugar-free candy until you are able to eat.\"",
+            "\"Eat bananas when you are ready to add food to your diet.\"",
+            "\"Drink a cup of hot tea in the morning.\"",
+            "\"Sip on carbonated beverages.\""
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\nSucking on sugar-free candy is not an appropriate recommendation for replacing fluids and electrolytes lost during diarrhea. Sugar-free candies do not provide the necessary nutrients and may contain artificial sweeteners that can worsen diarrhea.\nEating bananas when ready to add food to the diet is appropriate. Bananas are part of the BRAT diet (Bananas, Rice, Applesauce, Toast) recommended for diarrhea. Bananas are rich in potassium, which is an important electrolyte lost during diarrhea, and they help firm up stools.\nDrinking hot tea in the morning is not recommended during diarrhea. Tea contains tannins and caffeine, which can irritate the gastrointestinal tract and worsen diarrhea. Caffeine also has a diuretic effect that can contribute to dehydration.\nSipping on carbonated beverages is not recommended during diarrhea, as the carbonation can cause bloating, gas, and abdominal discomfort. Carbonated beverages do not effectively replace electrolytes lost during diarrhea.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 6
+    },
+    {
+        "q": "A nurse is teaching an in-service about manifestations of hypoglycemia to a group of newly licensed nurses. Which of the following should the nurse include in the teaching?",
+        "opts": [
+            "Vomiting",
+            "Blurred vision",
+            "Kussmaul respirations",
+            "Bradycardia"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\nVomiting is not a typical manifestation of hypoglycemia. Vomiting is more commonly associated with hyperglycemia, diabetic ketoacidosis (DKA), or gastrointestinal disorders.\nBlurred vision is a manifestation of hypoglycemia. When blood glucose levels drop too low, the brain and eyes do not receive enough glucose to function properly, leading to visual disturbances such as blurred vision. Other signs of hypoglycemia include shakiness, sweating, confusion, and palpitations.\nKussmaul respirations are not a manifestation of hypoglycemia. Kussmaul respirations are deep, rapid, and labored breathing patterns associated with metabolic acidosis, particularly in diabetic ketoacidosis (DKA), which occurs with hyperglycemia.\nBradycardia is not a typical manifestation of hypoglycemia. Hypoglycemia typically causes tachycardia due to activation of the sympathetic nervous system, which releases epinephrine in response to low blood glucose levels.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 7
+    },
+    {
+        "q": "A nurse is providing education to the partner of a client who has hepatic encephalopathy about a prescription for lactulose. Which of the following statements should the nurse make to the client's partner?",
+        "opts": [
+            "\"There should be a decrease in the number of bowel movements with this medication.\"",
+            "\"IV administration is the preferred route to give this medication.\"",
+            "\"This medication will treat the infection that is causing the confusion.\"",
+            "\"We will monitor the serum ammonia level to help determine if the medication is effective.\""
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\nThere should be a decrease in the number of bowel movements with this medication is incorrect. Lactulose works by increasing the number of bowel movements. It draws ammonia from the blood into the colon and promotes its excretion through the stool, which helps reduce the ammonia levels causing hepatic encephalopathy.\nIV administration is the preferred route to give this medication is incorrect. Lactulose is administered orally or via enema, not intravenously. It works within the gastrointestinal tract to reduce ammonia absorption.\nThis medication will treat the infection that is causing the confusion is incorrect. Hepatic encephalopathy is caused by the accumulation of toxins, particularly ammonia, in the blood due to liver dysfunction, not by infection. Lactulose does not treat infection; it reduces ammonia levels.\nMonitoring the serum ammonia level is appropriate and correct. Lactulose works by reducing ammonia levels in the blood, which helps improve the symptoms of hepatic encephalopathy, including confusion. Monitoring serum ammonia levels helps determine if the medication is effectively reducing ammonia and improving the client's condition.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 8
+    },
+    {
+        "q": "A nurse is teaching a group of clients about decreasing the use of saturated fats in cooking. The nurse should recommend which of the following dietary fats as having the lowest amount of saturated fat?",
+        "opts": [
+            "Butter",
+            "Palm oil",
+            "Coconut oil",
+            "Canola oil"
+        ],
+        "correct": [
+            3,
+            1
+        ],
+        "rat": "Correct Answer: D\nButter is high in saturated fat, containing about 51% saturated fat. It is an animal-derived fat that can raise LDL cholesterol levels and increase the risk of cardiovascular disease.\nPalm oil is high in saturated fat, containing about 49% saturated fat. Although it is a plant-based oil, its high saturated fat content makes it less heart-healthy compared to other vegetable oils.\nCoconut oil is very high in saturated fat, containing about 87% saturated fat. Despite some claims about its health benefits, its high saturated fat content makes it one of the least heart-healthy cooking oils.\nCanola oil has the lowest amount of saturated fat among the options listed, containing only about 7% saturated fat. It is high in monounsaturated fats and omega-3 fatty acids, making it a heart-healthy choice for cooking.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 9
+    },
+    {
+        "q": "A nurse is providing dietary teaching about prevention of neural tube defects in the fetus to a client who is pregnant. Which of the following nutrients should the nurse recommend?",
+        "opts": [
+            "Vitamin B12",
+            "Calcium",
+            "Magnesium",
+            "Folate"
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\nVitamin B12 is important for neurological function and red blood cell production, but it is not the primary nutrient for preventing neural tube defects. Vitamin B12 deficiency can cause anemia and neurological problems, but it is not directly linked to neural tube defects.\nCalcium is essential for bone health and muscle function, but it does not play a direct role in preventing neural tube defects. Calcium is important during pregnancy for fetal bone development.\nMagnesium is involved in many enzymatic reactions and supports bone health, but it does not specifically prevent neural tube defects.\nFolate (folic acid) is the key nutrient for preventing neural tube defects such as spina bifida and anencephaly. Adequate folate intake before and during early pregnancy is critical for proper neural tube development. The recommended intake is 400 micrograms per day for women of childbearing age and 600 micrograms per day during pregnancy.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 10
+    },
+    {
+        "q": "A nurse is caring for a client who reports she is having difficulty losing weight. Which of the following responses by the nurse is appropriate?",
+        "opts": [
+            "\"Set a goal and you will be able to attain it.\"",
+            "\"Eat small portions of the high-calorie foods first.\"",
+            "\"It is helpful to self-monitor your eating.\"",
+            "\"Taste food while cooking to help curb your appetite.\""
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\n\"Set a goal and you will be able to attain it.\" is not an appropriate response, as it is overly simplistic and does not provide practical guidance. Weight loss requires more than goal-setting; it requires behavioral changes and strategies.\n\"Eat small portions of the high-calorie foods first.\" is not appropriate advice, as consuming high-calorie foods, even in small portions, can hinder weight loss efforts. The client should be encouraged to choose low-calorie, nutrient-dense foods.\n\"It is helpful to self-monitor your eating.\" is the appropriate response. Self-monitoring, such as keeping a food diary or tracking caloric intake, is an evidence-based behavioral strategy for weight management. It increases awareness of eating patterns and helps identify areas for improvement.\n\"Taste food while cooking to help curb your appetite.\" is not appropriate advice, as tasting food while cooking can lead to unintentional caloric intake and does not effectively curb appetite.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 11
+    },
+    {
+        "q": "A nurse is providing nutritional teaching to a client who has AIDS-related wasting syndrome. Which of the following instructions should the nurse include in the teaching?",
+        "opts": [
+            "\"Add butter to vegetables.\"",
+            "\"Avoid desserts made with eggs.\"",
+            "\"Increase fluid intake with meals.\"",
+            "\"Prepare hot chocolate with water instead of milk.\""
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\n\"Add butter to vegetables.\" while this can add calories, it is not the priority instruction for AIDS-related wasting syndrome. Butter is high in saturated fat and cholesterol, which can have negative effects on cardiovascular health.\n\"Avoid desserts made with eggs.\" is not appropriate advice for a client with AIDS-related wasting syndrome. Eggs are a good source of protein and calories, which are important for maintaining weight in clients with wasting syndrome. However, immunocompromised clients should avoid raw or undercooked eggs due to the risk of Salmonella infection.\n\"Increase fluid intake with meals.\" is the appropriate instruction. Clients with AIDS-related wasting syndrome often have difficulty maintaining adequate nutrition and hydration. Increasing fluid intake with meals helps maintain hydration, aids digestion, and can help the client consume more nutrients overall.\n\"Prepare hot chocolate with water instead of milk.\" is not appropriate, as milk provides additional calories, protein, and calcium that are beneficial for a client with wasting syndrome. Using water instead of milk reduces the nutritional value of the beverage.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 12
+    },
+    {
+        "q": "A nurse is providing dietary teaching to a client who has diverticular disease. Which of the following food choices should the nurse recommend as having the highest fiber content?",
+        "opts": [
+            "3 oz turkey",
+            "1/2 cup cooked peas",
+            "1 cup low-fat plain yogurt",
+            "1/2 cup cooked white rice"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\n3 oz turkey is a protein source and contains no dietary fiber. Turkey is a lean protein that is beneficial for overall health but does not contribute to fiber intake.\n1/2 cup cooked peas contains approximately 4 grams of dietary fiber, making it the highest fiber option among the choices. Peas are legumes that are rich in both soluble and insoluble fiber, which helps promote regular bowel movements and prevents diverticular disease flare-ups.\n1 cup low-fat plain yogurt is a dairy product that contains no dietary fiber. Yogurt is a good source of protein and calcium but does not contribute to fiber intake.\n1/2 cup cooked white rice contains minimal dietary fiber, approximately 0.3 grams. White rice is a refined grain with most of its fiber removed during processing.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 13
+    },
+    {
+        "q": "A nurse in a critical care unit is assessing an adult client. Which of the following findings by the nurse indicates a fluid volume deficit?",
+        "opts": [
+            "Heart rate 118/min",
+            "Central venous pressure 25 mm Hg",
+            "Blood pressure 152/90 mm Hg",
+            "Temperature 37.2°C (99°F)"
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nHeart rate 118/min indicates tachycardia, which is a compensatory response to fluid volume deficit. When circulating blood volume decreases, the heart beats faster to maintain cardiac output and blood pressure. Tachycardia is one of the earliest signs of fluid volume deficit.\nCentral venous pressure 25 mm Hg is elevated, not decreased. Normal CVP is 2 to 8 mm Hg. An elevated CVP indicates fluid volume excess, not deficit. It suggests increased venous return to the heart, which may indicate heart failure or fluid overload.\nBlood pressure 152/90 mm Hg is elevated. Fluid volume deficit typically causes hypotension, not hypertension. Elevated blood pressure may indicate hypertension or other cardiovascular conditions.\nTemperature 37.2°C (99°F) is within the normal range and does not indicate fluid volume deficit. While fever can contribute to fluid loss, the temperature itself is not a direct indicator of fluid volume deficit.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 14
+    },
+    {
+        "q": "A nurse is caring for a client who reports she is having difficulty losing weight. Which of the following responses by the nurse is appropriate?",
+        "opts": [
+            "\"Set a goal and you will be able to attain it.\"",
+            "\"Eat small portions of the high-calorie foods first.\"",
+            "\"It is helpful to self-monitor your eating.\"",
+            "\"Taste food while cooking to help curb your appetite.\""
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\n\"Set a goal and you will be able to attain it.\" is not an appropriate response, as it is overly simplistic and does not provide practical guidance for weight loss.\n\"Eat small portions of the high-calorie foods first.\" is not appropriate advice. Consuming high-calorie foods, even in small portions, can hinder weight loss efforts.\n\"It is helpful to self-monitor your eating.\" is the appropriate response. Self-monitoring eating habits, such as keeping a food diary or tracking caloric intake, is an evidence-based behavioral strategy for weight management. It increases awareness of eating patterns and helps identify areas for improvement.\n\"Taste food while cooking to help curb your appetite.\" is not appropriate, as tasting food while cooking can lead to unintentional caloric intake and does not effectively curb appetite.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 15
+    },
+    {
+        "q": "A nurse is providing dietary teaching to a client who has a body mass index of 28. Which of the following actions should the nurse take?",
+        "opts": [
+            "Recommend a total fiber intake of 12g each day.",
+            "Advise the client to add 500 calories per day to the diet.",
+            "Encourage the client to continue current daily caloric intake.",
+            "Refer the client to a weight-loss support group."
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nRecommending a total fiber intake of 12g each day is not appropriate. The recommended daily fiber intake for adults is 25 to 38 grams per day, not 12 grams. Fiber is important for digestive health and weight management.\nAdvising the client to add 500 calories per day is not appropriate. Adding calories would lead to weight gain, which is not recommended for a client with a BMI of 28, who is already in the overweight category.\nEncouraging the client to continue current daily caloric intake is the appropriate action. A BMI of 28 falls in the overweight category (25 to 29.9), but it does not yet require significant dietary changes or referral to a weight-loss program. The nurse should encourage the client to maintain their current intake while promoting healthy eating habits and physical activity.\nReferring the client to a weight-loss support group may be premature for a client with a BMI of 28. While the client is overweight, a referral to a weight-loss support group is typically more appropriate for clients with a BMI of 30 or higher (obese category).",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 16
+    },
+    {
+        "q": "A nurse is teaching a client who reports wanting to lose weight about behavioral modifications. Which of the following statements should the nurse include in the teaching?",
+        "opts": [
+            "\"Your biggest meal of the day should be breakfast.\"",
+            "\"Set your weight loss goal to 2.5 pounds per week.\"",
+            "\"Meal replacement shakes can cause weight gain.\"",
+            "\"Make sure to drink water with your meals.\""
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\n\"Your biggest meal of the day should be breakfast.\" is the correct statement. Research suggests that eating a larger breakfast and smaller meals later in the day can support weight loss. Breakfast provides energy for the day's activities and can help prevent overeating later in the day.\n\"Set your weight loss goal to 2.5 pounds per week.\" is not appropriate advice. A safe and realistic weight loss goal is 0.5 to 1 pound per week. Losing 2.5 pounds per week would require an unrealistic caloric deficit and could lead to muscle loss, nutrient deficiencies, and other health problems.\n\"Meal replacement shakes can cause weight gain.\" is not accurate. Meal replacement shakes, when used appropriately, can be a helpful tool for weight loss by providing controlled portions and balanced nutrition.\n\"Make sure to drink water with your meals.\" while staying hydrated is important, drinking large amounts of water with meals can cause bloating and feelings of fullness that may interfere with adequate nutrient intake.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 17
+    },
+    {
+        "q": "A nurse is teaching a client about protein. Which of the following foods should the nurse include in the teaching as a complete protein? (Select all that apply)",
+        "opts": [
+            "Legumes",
+            "Poultry",
+            "Eggs",
+            "Nuts",
+            "Grains"
+        ],
+        "correct": [
+            1,
+            2
+        ],
+        "rat": "Correct Answer: B, C\nLegumes, such as beans, peas, or lentils, are not a complete protein, as they are low in the essential amino acid methionine. However, legumes can be combined with other plant-based foods, such as grains or nuts, to form a complete protein.\nPoultry, such as chicken, turkey, or duck, is a complete protein, as it contains all nine essential amino acids in sufficient amounts. Poultry is also a lean source of protein, with about 25 grams per 3-ounce serving.\nEggs are a complete protein, as they contain all nine essential amino acids in adequate amounts. Eggs are also a good source of protein, with about 6 grams per egg.\nNuts are not a complete protein, as they are low in the essential amino acid lysine. However, nuts can be combined with other plant-based foods, such as grains or legumes, to form a complete protein.\nGrains, such as wheat, rice, or oats, are not a complete protein, as they are low in the essential amino acid lysine. However, grains can be combined with other plant-based foods, such as legumes or nuts, to form a complete protein.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 18
+    },
+    {
+        "q": "A nurse is teaching a client about a vitamin that reduces the anticoagulant effect of warfarin. Which of the following vitamins should the nurse include in the teaching?",
+        "opts": [
+            "Thiamin",
+            "Vitamin K",
+            "Folate",
+            "Vitamin A"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\nThiamin (Vitamin B1) does not affect the anticoagulant effect of warfarin. Thiamin is involved in carbohydrate metabolism and nerve function but has no direct interaction with warfarin.\nVitamin K is the correct answer. Vitamin K plays a crucial role in blood clotting by activating clotting factors. Warfarin works by inhibiting Vitamin K-dependent clotting factors. Therefore, consuming foods high in Vitamin K, such as leafy green vegetables, can reduce the anticoagulant effect of warfarin and increase the risk of blood clots. Clients taking warfarin should maintain a consistent intake of Vitamin K-rich foods.\nFolate (Vitamin B9) is important for DNA synthesis and cell division but does not affect the anticoagulant effect of warfarin.\nVitamin A is a fat-soluble vitamin important for vision, immune function, and cell growth, but it does not reduce the anticoagulant effect of warfarin.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 19
+    },
+    {
+        "q": "A nurse is providing teaching about the Dietary Approaches to Stop Hypertension (DASH) diet to a client who has hypertension. Which of the following instructions should the nurse include?",
+        "opts": [
+            "\"Limit sodium intake to 3,200 milligrams per day.\"",
+            "\"Consume foods that are high in calcium.\"",
+            "\"Increase intake of refined carbohydrates.\"",
+            "\"Consume ten percent of total calories from saturated fat.\""
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\n\"Limit sodium intake to 3,200 milligrams per day.\" is incorrect. The standard DASH diet limits sodium intake to 2,300 milligrams per day. A lower sodium version restricts sodium to 1,500 milligrams per day. Therefore, 3,200 milligrams is not consistent with the DASH diet.\n\"Consume foods that are high in calcium.\" is correct. The DASH diet encourages consuming foods that are high in calcium, such as fat-free or low-fat dairy products, fish, beans, and nuts. Calcium helps regulate blood pressure and supports bone health.\n\"Increase intake of refined carbohydrates.\" is incorrect. The DASH diet recommends eating fewer refined carbohydrates and less sugar. Instead, it emphasizes eating more whole grains, fruits, and vegetables.\n\"Consume ten percent of total calories from saturated fat.\" is incorrect. The DASH diet recommends consuming no more than six percent of total calories from saturated fat, not ten percent.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 20
+    },
+    {
+        "q": "A nurse in a long-term care facility is implementing a nutrition plan for a client who is at risk for malnutrition. Which of the following actions should the nurse include in the plan? (Select all that apply.)",
+        "opts": [
+            "Remove the bedpan from the client's sight.",
+            "Assess for pain prior to mealtime.",
+            "Administer antiemetics following the meal.",
+            "Discourage snacks between meals.",
+            "Provide mouth care before feeding."
+        ],
+        "correct": [
+            1,
+            4
+        ],
+        "rat": "Correct Answer: B, E\nNote: The PDF answer states B, E, however the CMS1 document shows B, C, D as correct. Based on the rationale provided:\nRemoving the bedpan from the client's sight is appropriate as the presence of a bedpan can cause the client to lose appetite, feel nauseated, or associate food with negative emotions.\nAssessing for pain prior to mealtime is appropriate. Pain can reduce the client's appetite, mood, and ability to eat comfortably. The nurse should assess the client's pain level and provide adequate pain relief before offering food.\nAdministering antiemetics following the meal is not appropriate. Antiemetics should be given before the meal, not after, to reduce the likelihood of postprandial nausea and vomiting.\nDiscouraging snacks between meals is not appropriate for a client at risk for malnutrition. Snacks can provide additional calories, protein, and micronutrients that the client may not get from regular meals.\nProviding mouth care before feeding is appropriate. Mouth care can improve the client's appetite, taste, and comfort, as well as prevent oral infections and dental problems that can affect food intake.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 21
+    },
+    {
+        "q": "A nurse is teaching a client who has Parkinson's disease and is prescribed a monoamine oxidase inhibitor. Which of the following instructions should the nurse include?",
+        "opts": [
+            "\"Reduce intake of high-calorie foods.\"",
+            "\"Do not eat grapefruit while taking this medication.\"",
+            "\"Avoid aged cheeses while taking this medication.\"",
+            "\"Maintain a low-protein diet.\""
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\n\"Reduce intake of high-calorie foods.\" is not the most important dietary instruction for a client taking a monoamine oxidase inhibitor (MAOI). While maintaining a healthy diet is important, reducing high-calorie foods is not specifically related to MAOI therapy.\n\"Do not eat grapefruit while taking this medication.\" Grapefruit interactions are more commonly associated with other medications such as statins and calcium channel blockers, not MAOIs.\n\"Avoid aged cheeses while taking this medication.\" is the correct instruction. MAOIs inhibit the breakdown of tyramine, an amino acid found in aged and fermented foods. When tyramine accumulates in the body, it can cause a sudden and severe increase in blood pressure, known as a hypertensive crisis. Aged cheeses are among the highest sources of tyramine and must be avoided by clients taking MAOIs.\n\"Maintain a low-protein diet.\" is not a specific requirement for clients taking MAOIs. While protein contains amino acids including tyramine precursors, it is the aged and fermented protein sources specifically that must be avoided, not all protein.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 22
+    },
+    {
+        "q": "A nurse is providing teaching about food allergies to the parents of a toddler. Which of the following foods should the nurse identify as the highest risk for allergies in toddlers?",
+        "opts": [
+            "Eggs",
+            "Citrus fruits",
+            "Bananas",
+            "Milk"
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nEggs are one of the most common food allergens in toddlers and young children. Egg allergies are among the top eight food allergens recognized by the FDA, along with milk, peanuts, tree nuts, wheat, soy, fish, and shellfish. Egg allergies in toddlers can cause a range of reactions from mild hives to severe anaphylaxis. Many children outgrow egg allergies by school age.\nCitrus fruits can cause reactions in some children, but they are not among the top eight food allergens. Reactions to citrus fruits are more often due to irritation from the acidic content rather than a true allergic response.\nBananas are not among the most common food allergens in toddlers. While some individuals may have latex-fruit syndrome and react to bananas, this is not a common allergy in toddlers.\nMilk is also a common food allergen in toddlers, but among the options listed, eggs are identified as the highest risk. Milk allergy is one of the most common food allergies in infants and young children, but many children outgrow it.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 23
+    },
+    {
+        "q": "A nurse is caring for a client who follows a vegan diet. The nurse should identify that the client is at risk for which of the following deficiencies?",
+        "opts": [
+            "Magnesium",
+            "Vitamin C",
+            "Vitamin D",
+            "Folic acid"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nMagnesium is widely distributed in plant and animal foods, such as nuts, seeds, legumes, grains, and green leafy vegetables. Vegans are not prone to magnesium deficiency unless they have a chronic condition that affects magnesium absorption or excretion.\nVitamin C is abundant in plant sources, such as fruits and vegetables. Vegans are not likely to be deficient in vitamin C unless they have a very restricted diet or a malabsorption disorder.\nVitamin D is mainly obtained from exposure to sunlight and animal sources, such as dairy products, eggs, and fish. Vegans are at risk for vitamin D deficiency, especially if they live in areas with limited sunlight or do not take supplements. Vitamin D deficiency can cause osteoporosis, muscle weakness, and immune dysfunction.\nFolic acid is found in fortified grains, cereals, dark green leafy vegetables, beans, and lentils. Vegans are not at risk for folic acid deficiency as long as they consume enough of these foods or take supplements.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 24
+    },
+    {
+        "q": "A nurse is determining a client's intake based on the following information: 300 mL IV fluids, 8 oz coffee, 8 oz beef broth, 6 oz gelatin, and 24 oz water. What is the client's total intake?",
+        "opts": [],
+        "correct": [],
+        "rat": "Correct Answer: 1680 mL\nCalculation:\n300 mL IV fluids = 300 mL\n8 oz coffee = 8 × 30 mL = 240 mL\n8 oz beef broth = 8 × 30 mL = 240 mL\n6 oz gelatin = 6 × 30 mL = 180 mL\n24 oz water = 24 × 30 mL = 720 mL\nTotal = 300 + 240 + 240 + 180 + 720 = 1,680 mL\nAll liquid and semi-liquid foods count as fluid intake. Gelatin is counted as a liquid because it melts at body temperature. Coffee, broth, and water are all counted as fluid intake regardless of temperature or content.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 25
+    },
+    {
+        "q": "A nurse is teaching a client who has hypertension. Which of the following client statements indicates an understanding of the teaching? (Select all that apply)",
+        "opts": [
+            "\"I will use olive oil and vinegar as dressing for my salads.\"",
+            "\"I can snack on low-calorie crackers between meals.\"",
+            "\"I should limit the amount of processed cheese in my diet.\"",
+            "\"I will buy frozen dinners four times a week to balance my diet.\"",
+            "\"I should cook my pasta without putting salt in the boiling water.\""
+        ],
+        "correct": [
+            0,
+            2,
+            4
+        ],
+        "rat": "Correct Answer: A, C, E\n\"I will use olive oil and vinegar as dressing for my salads.\" is correct. Olive oil is a heart-healthy unsaturated fat that can help lower LDL cholesterol. Using olive oil and vinegar instead of commercial dressings, which are often high in sodium, is appropriate for a client with hypertension.\n\"I can snack on low-calorie crackers between meals.\" is not necessarily correct for a client with hypertension. Many low-calorie crackers are high in sodium, which can raise blood pressure. The client should check the sodium content of crackers before consuming them.\n\"I should limit the amount of processed cheese in my diet.\" is correct. Processed cheese is high in sodium, which can raise blood pressure. Limiting processed cheese is an appropriate dietary modification for a client with hypertension.\n\"I will buy frozen dinners four times a week to balance my diet.\" is not correct. Frozen dinners are typically high in sodium, preservatives, and unhealthy fats, which can worsen hypertension. The client should be encouraged to prepare fresh, home-cooked meals with less sodium.\n\"I should cook my pasta without putting salt in the boiling water.\" is correct. Adding salt to cooking water significantly increases the sodium content of the food. Cooking pasta without salt is an appropriate dietary modification for a client with hypertension.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 26
+    },
+    {
+        "q": "A nurse is developing a plan of care for a client who is recovering from a stroke and is experiencing dysphagia and right-sided weakness. Which of the following interventions should the nurse include in the plan of care?",
+        "opts": [
+            "Provide a nonskid placemat for the client at meals.",
+            "Instruct the client to tilt their head back when swallowing.",
+            "Instruct the client to chew food on the right side of their mouth.",
+            "Provide narrow-grip utensils during meals."
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nProviding a nonskid placemat for the client at meals is the correct intervention. Due to the client's right-sided weakness, they may have difficulty stabilizing their plate while eating. A nonskid placemat prevents the plate from sliding, making it easier for the client to eat independently and safely.\nInstructing the client to tilt their head back when swallowing is not safe for a client with dysphagia. Tilting the head back opens the airway and increases the risk of aspiration. The correct technique is to tilt the head slightly forward (chin tuck) to close the airway and direct food to the esophagus.\nInstructing the client to chew food on the right side of their mouth is not appropriate, as the right side is affected by the stroke and may have reduced strength and sensation. The client should chew food on the unaffected left side of their mouth.\nProviding narrow-grip utensils during meals is not appropriate for a client with right-sided weakness. The client would benefit from large-grip or adaptive utensils that are easier to hold with a weakened hand.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 27
+    },
+    {
+        "q": "A nurse is teaching about nutrition to a client who has a new diagnosis of chronic kidney disease. Which of the following recommendations should the nurse include in the teaching?",
+        "opts": [
+            "Limit protein intake.",
+            "Increase phosphorus intake.",
+            "Increase potassium intake.",
+            "Limit calcium intake."
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nLimiting protein intake is the correct recommendation for a client with chronic kidney disease (CKD). Protein metabolism produces waste products, such as urea and creatinine, which are normally filtered by the kidneys. In clients with CKD, the kidneys cannot effectively filter these waste products, leading to their accumulation in the blood. Limiting protein intake reduces the workload on the kidneys and slows the progression of kidney disease.\nIncreasing phosphorus intake is not appropriate for clients with CKD. The kidneys cannot effectively filter excess phosphorus in clients with CKD, leading to hyperphosphatemia, which can cause bone disease, calcification of blood vessels, and increased risk of cardiovascular disease. Clients with CKD should limit phosphorus intake.\nIncreasing potassium intake is not appropriate for clients with CKD. The kidneys cannot effectively filter excess potassium, leading to hyperkalemia, which can cause dangerous cardiac arrhythmias. Clients with CKD should limit potassium intake.\nLimiting calcium intake is not typically recommended for clients with CKD. While calcium metabolism is affected in CKD, clients may actually need calcium supplementation to prevent bone disease due to impaired vitamin D activation and increased phosphorus levels.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 28
+    },
+    {
+        "q": "A nurse is providing dietary teaching to a client about sources of protein. The nurse should identify which of the following items as a complete protein?",
+        "opts": [
+            "Legumes",
+            "Almonds",
+            "Salmon",
+            "Gelatin"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nLegumes, such as beans, peas, or lentils, are not a complete protein, as they are low in the essential amino acid methionine. They can be combined with grains to form a complete protein.\nAlmonds are not a complete protein, as they are low in the essential amino acid lysine. They can be combined with other plant-based foods to form a complete protein.\nSalmon is a complete protein, as it contains all nine essential amino acids in sufficient amounts. Salmon is also an excellent source of omega-3 fatty acids, which are beneficial for heart health.\nGelatin is not a complete protein, as it lacks the essential amino acid tryptophan and is low in several other essential amino acids. Gelatin is derived from collagen and does not provide all the essential amino acids needed by the body.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 29
+    },
+    {
+        "q": "A nurse is planning a class for parents of school-age children about iron intake. Which of the following should the nurse include as a manifestation of iron deficiency?",
+        "opts": [
+            "Increased risk of infection",
+            "Decreased sleeping time",
+            "Elevated temperature",
+            "Lowered intellectual performance"
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\nIncreased risk of infection can occur with iron deficiency, as iron is important for immune function. However, it is not the most specific or prominent manifestation of iron deficiency in school-age children.\nDecreased sleeping time is not a manifestation of iron deficiency. Iron deficiency anemia can actually cause fatigue and increased need for sleep, not decreased sleeping time.\nElevated temperature is not a manifestation of iron deficiency. Fever is associated with infection or inflammation, not iron deficiency.\nLowered intellectual performance is a key manifestation of iron deficiency in school-age children. Iron is essential for brain development and cognitive function. Iron deficiency can impair attention, concentration, and learning ability, leading to poor academic performance. This is particularly concerning in school-age children who are in critical periods of cognitive development.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 30
+    },
+    {
+        "q": "A nurse is providing follow-up care with a client who participated in a class about improving bone health. Which of the following client statements should the nurse identify as an understanding of the teaching?",
+        "opts": [
+            "\"I have been taking 500 micrograms per day of vitamin A supplement.\"",
+            "\"I have included fortified milk, fatty fish, and cheese into my diet each day.\"",
+            "\"I take an 800-milligram calcium supplement with my breakfast every day.\"",
+            "\"I increased my intake of orange juice, lean meats, and egg whites.\""
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "\"I have been taking 500 micrograms per day of vitamin A supplement.\" is incorrect, as excessive vitamin A supplementation can have adverse effects on bone health, increasing the risk of fractures and reducing bone mineral density.\n\"I have included fortified milk, fatty fish, and cheese into my diet each day.\" shows understanding of the importance of vitamin D and calcium for bone health. These foods are good sources of both nutrients.\n\"I take an 800-milligram calcium supplement with my breakfast every day.\" indicates understanding of calcium supplementation for bone health. However, calcium alone is not sufficient without adequate vitamin D for absorption.\n\"I increased my intake of orange juice, lean meats, and egg whites.\" is not specifically beneficial for bone health, as these foods do not provide significant amounts of vitamin D or calcium.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 31
+    },
+    {
+        "q": "A nurse is providing discharge teaching to a client who has a new diagnosis of Crohn's disease. Which of the following statements by the client indicates an understanding of the teaching?",
+        "opts": [
+            "\"I am likely to gain weight due to this disease.\"",
+            "\"I will need to avoid taking glutamine.\"",
+            "\"I will need to take mild laxatives to help me have a bowel movement.\"",
+            "\"I should limit the amount of fiber in my diet.\""
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\n\"I am likely to gain weight due to this disease.\" is incorrect. Crohn's disease typically causes weight loss due to malabsorption, decreased appetite, and increased metabolic demands from inflammation. Weight gain is not a typical manifestation of Crohn's disease.\n\"I will need to avoid taking glutamine.\" is incorrect. Glutamine is actually beneficial for clients with Crohn's disease, as it helps maintain the integrity of the intestinal mucosa and supports immune function.\n\"I will need to take mild laxatives to help me have a bowel movement.\" is incorrect. Crohn's disease often causes diarrhea, not constipation. Taking laxatives would worsen diarrhea and dehydration.\n\"I should limit the amount of fiber in my diet.\" is the correct statement. During active flare-ups of Crohn's disease, a low-fiber diet is recommended to reduce bowel irritation and decrease the frequency and severity of diarrhea. High-fiber foods can worsen symptoms by increasing intestinal motility and irritating the inflamed bowel.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 32
+    },
+    {
+        "q": "A nurse is providing discharge teaching about food choices to a client who has hypokalemia. Which of the following foods should the nurse identify as the best source of potassium?",
+        "opts": [
+            "1 cup shredded lettuce",
+            "1 cup grapes",
+            "1 cup apple slices",
+            "1 cup cooked tomatoes"
+        ],
+        "correct": [
+            3,
+            2
+        ],
+        "rat": "Correct Answer: D\n1 cup shredded lettuce contains a minimal amount of potassium, approximately 100 mg. While it is a healthy food choice, it is not the best source of potassium among the options listed.\n1 cup grapes contains approximately 288 mg of potassium, which is a moderate amount. While grapes provide some potassium, they are not the best source among the options listed.\n1 cup apple slices contains approximately 134 mg of potassium, which is a relatively low amount. Apples are a good source of fiber and vitamin C but are not particularly high in potassium.\n1 cup cooked tomatoes contains approximately 528 mg of potassium, making it the best source of potassium among the options listed. Cooking tomatoes concentrates their nutrients, including potassium. Tomatoes are also rich in vitamin C, lycopene, and other antioxidants.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 33
+    },
+    {
+        "q": "A nurse is reviewing the medication administration record for a client who is 2 days postoperative following abdominal surgery. The nurse should recognize that which of the following medications places the client at risk for wound dehiscence?",
+        "opts": [
+            "Omeprazole",
+            "Prednisone",
+            "Zolmitriptan",
+            "Verapamil"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\nOmeprazole is a proton pump inhibitor used to reduce stomach acid production. It does not significantly affect wound healing or increase the risk of wound dehiscence.\nPrednisone is a corticosteroid that places the client at risk for wound dehiscence. Corticosteroids impair wound healing by suppressing the inflammatory response, reducing collagen synthesis, and impairing the immune system. These effects can delay wound healing and increase the risk of wound dehiscence, particularly in postoperative clients.\nZolmitriptan is a triptan medication used to treat migraines. It does not significantly affect wound healing or increase the risk of wound dehiscence.\nVerapamil is a calcium channel blocker used to treat hypertension and cardiac arrhythmias. It does not significantly affect wound healing or increase the risk of wound dehiscence.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 34
+    },
+    {
+        "q": "A nurse is teaching a client who is receiving chemotherapy about managing nausea. Which of the following statements should the nurse include in the teaching?",
+        "opts": [
+            "\"Eat foods served cold.\"",
+            "\"Lie down for 30 minutes after eating.\"",
+            "\"Reduce carbohydrates in your diet.\"",
+            "\"Plan to eat 1 hour before receiving chemotherapy.\""
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\n\"Eat foods served cold.\" is the correct statement. Cold foods have less odor and are less likely to trigger nausea compared to hot foods. Hot foods release more volatile compounds that can stimulate the chemoreceptor trigger zone (CTZ) and worsen nausea in clients receiving chemotherapy.\n\"Lie down for 30 minutes after eating.\" is not appropriate advice. Lying down after eating can increase the risk of reflux and aspiration, which can worsen nausea. The client should remain upright for at least 1 hour after eating.\n\"Reduce carbohydrates in your diet.\" is not helpful for managing chemotherapy-induced nausea. Carbohydrates are easy to digest and can help settle the stomach. Reducing carbohydrates may lead to hypoglycemia, which can also cause nausea.\n\"Plan to eat 1 hour before receiving chemotherapy.\" is not appropriate. Eating shortly before chemotherapy can worsen nausea and vomiting. The client should avoid eating for several hours before treatment or follow specific instructions from their healthcare provider.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 35
+    },
+    {
+        "q": "A nurse is providing teaching to the parent of a newborn who has gastroesophageal reflux. Which of the following instructions should the nurse include?",
+        "opts": [
+            "\"Dilute formula with 1 tablespoon of water.\"",
+            "\"Position the newborn at a 20-degree angle after feeding.\"",
+            "\"Provide a small feeding just before bedtime.\"",
+            "\"Place the newborn in a side-lying position if vomiting.\""
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\n\"Dilute formula with 1 tablespoon of water.\" is not recommended, as it can cause water intoxication, electrolyte imbalance, and malnutrition in the newborn. The nurse should advise the parent to follow the manufacturer's instructions for preparing the formula.\n\"Position the newborn at a 20-degree angle after feeding.\" is the correct instruction. Positioning the newborn at a 20-degree angle after feeding allows gravity to keep the food in the stomach and reduces the pressure on the lower esophageal sphincter. The nurse should instruct the parent to keep the newborn in this position for at least 30 minutes after each feeding.\n\"Provide a small feeding just before bedtime.\" is not appropriate, as it can worsen gastroesophageal reflux and disrupt the newborn's sleep. The nurse should suggest feeding the newborn smaller and more frequent meals throughout the day and avoiding feeding within 2 to 3 hours of bedtime.\n\"Place the newborn in a side-lying position if vomiting.\" is not a safe practice, as it can increase the risk of aspiration and sudden infant death syndrome (SIDS). The nurse should instruct the parent to place the newborn on their back for sleeping.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 36
+    },
+    {
+        "q": "A nurse is providing discharge teaching for a client who has iron deficiency anemia. Which of the following information should the nurse include?",
+        "opts": [
+            "Cooking in a stainless steel skillet increases the amount of iron in the food.",
+            "Drinking iced tea with meals can increase the amount of iron absorbed.",
+            "Fish and poultry are primary sources of heme iron.",
+            "Drinking orange juice with iron supplements can decrease absorption."
+        ],
+        "correct": [
+            2,
+            2
+        ],
+        "rat": "Correct Answer: C\nCooking in a stainless steel skillet does not increase the amount of iron in the food. Stainless steel is not a good conductor of iron and does not leach iron into the food. The nurse should suggest the client to use a cast iron skillet instead, which can add iron to the food.\nDrinking iced tea with meals can decrease the amount of iron absorbed, not increase it. Iced tea contains tannins, which are compounds that bind to iron and inhibit its absorption. The nurse should recommend the client to avoid drinking tea, coffee, or other beverages that contain tannins with meals.\nFish and poultry are primary sources of heme iron, which is the type of iron found in animal foods and is more easily absorbed by the body than non-heme iron. The nurse should encourage the client to eat more foods that are high in heme iron, such as fish, poultry, meat, and eggs.\nDrinking orange juice with iron supplements can increase absorption, not decrease it. Orange juice is rich in vitamin C, which enhances the absorption of non-heme iron by converting it from the ferric form to the more absorbable ferrous form.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 37
+    },
+    {
+        "q": "A nurse is planning care for a client who has pressure injuries. Which of the following diets should the nurse include in the plan of care to promote wound healing?",
+        "opts": [
+            "Low-carbohydrate",
+            "High-nutrient",
+            "High-cholesterol",
+            "Low-sodium"
+        ],
+        "correct": [
+            1,
+            0
+        ],
+        "rat": "Correct Answer: B\nA low-carbohydrate diet is not specifically recommended for wound healing. While controlling blood sugar levels is important for wound healing in diabetic clients, a severely low-carbohydrate diet can deprive the body of energy needed for tissue repair.\nA high-nutrient diet is the correct recommendation for promoting wound healing in clients with pressure injuries. Adequate nutrition is essential for wound healing. Key nutrients include protein for tissue repair and immune function, vitamin C for collagen synthesis, zinc for cell proliferation and immune function, and adequate calories to meet the increased energy demands of wound healing.\nA high-cholesterol diet is not recommended for wound healing. High cholesterol can impair circulation and tissue perfusion, which can hinder wound healing.\nA low-sodium diet is not specifically recommended for wound healing unless the client has conditions such as heart failure or hypertension. While reducing sodium may help manage fluid retention, it is not the primary dietary intervention for pressure injuries.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 38
+    },
+    {
+        "q": "A nurse is caring for a client who is prescribed 45 calories/kg per day. The client weighs 132 lb. What should the client's daily caloric intake be?",
+        "opts": [],
+        "correct": [],
+        "rat": "Correct Answer: 2700 calories per day\nCalculation:\nConvert weight from pounds to kilograms: 132 lb ÷ 2.2 = 60 kg\nCalculate daily caloric intake: 60 kg × 45 calories/kg = 2,700 calories per day\nThis calculation ensures that the client receives the appropriate number of calories based on their body weight and prescribed caloric needs.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 39
+    },
+    {
+        "q": "A nurse is caring for a client who follows strict halal dietary guidelines. Which of the following should the nurse remove from the available food choices?",
+        "opts": [
+            "Egg casserole with ham",
+            "Vegetable soup with lentils",
+            "Baked fish with rice",
+            "Roast beef sandwich with gravy"
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nEgg casserole with ham should be removed from the available food choices. Ham is pork, which is strictly forbidden (haram) in halal dietary guidelines. Muslims who follow halal guidelines are prohibited from consuming pork and pork products in any form.\nVegetable soup with lentils is an acceptable halal food choice. Vegetables and legumes are generally considered halal.\nBaked fish with rice is an acceptable halal food choice. Fish is generally considered halal in Islamic dietary law.\nRoast beef sandwich with gravy may be acceptable if the beef was slaughtered according to halal requirements. However, the nurse would need to verify that the beef and gravy meet halal standards.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 40
+    },
+    {
+        "q": "(Duplicate of Q40) A nurse is caring for a client who follows strict halal dietary guidelines. Which of the following should the nurse remove from the available food choices?",
+        "opts": [
+            "Egg casserole with ham",
+            "Vegetable soup with lentils",
+            "Baked fish with rice",
+            "Roast beef sandwich with gravy"
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nSame rationale as Question 40. Ham is pork, which is strictly forbidden in halal dietary guidelines. All other options are generally acceptable within halal dietary guidelines.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 41
+    },
+    {
+        "q": "A nurse is teaching a group of clients about dietary needs to prevent osteoporosis. Which of the following dietary choices should the nurse recommend as having the highest calcium content?",
+        "opts": [
+            "One medium banana",
+            "One large tomato",
+            "1 cup broccoli",
+            "1 cup green grapes"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nOne medium banana contains approximately 6 mg of calcium, which is a very low amount. Bananas are a good source of potassium and vitamin B6 but are not significant sources of calcium.\nOne large tomato contains approximately 18 mg of calcium, which is a low amount. Tomatoes are rich in vitamin C, lycopene, and potassium but are not significant sources of calcium.\n1 cup broccoli contains approximately 62 mg of calcium, making it the highest calcium content among the options listed. Broccoli is an excellent source of calcium for individuals who cannot consume dairy products. It also contains vitamin K and vitamin C, which support bone health.\n1 cup green grapes contains approximately 15 mg of calcium, which is a low amount. Grapes are a good source of vitamins C and K but are not significant sources of calcium.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 42
+    },
+    {
+        "q": "A nurse is caring for a client who is receiving chemotherapy treatments. The client states, \"I feel so nauseated after my treatments.\" Which of the following instructions should the nurse provide the client? (Select all that apply.)",
+        "opts": [
+            "Sip fluids slowly throughout the day.",
+            "Sit up for 1 hr after eating meals.",
+            "Consume foods that are served cold.",
+            "Eat foods low in carbohydrates.",
+            "Limit use of antiemetics until after first emesis."
+        ],
+        "correct": [
+            0,
+            1,
+            2
+        ],
+        "rat": "Correct Answer: A, B, C\nSipping fluids slowly throughout the day can help prevent dehydration and electrolyte imbalance, which can worsen nausea and vomiting. Fluids also help flush out the toxins from the chemotherapy and reduce the risk of kidney damage.\nSitting up for 1 hr after eating meals can help prevent reflux and aspiration, which can cause more nausea and vomiting. Sitting up can also promote gastric emptying and digestion.\nConsuming foods that are served cold can help reduce the stimulation of the chemoreceptor trigger zone (CTZ), which is responsible for triggering nausea and vomiting. Cold foods also have less odor and taste, which can be unpleasant for some clients with chemotherapy-induced nausea and vomiting (CINV).\nEating foods low in carbohydrates is not a helpful strategy for CINV, as carbohydrates can provide energy and prevent hypoglycemia, which can also cause nausea and vomiting. Carbohydrates can also help settle the stomach and reduce acid production.\nLimiting the use of antiemetics until after the first emesis is not a recommended practice. Antiemetics should be given before, during, and after chemotherapy, according to the emetogenic potential of the agents and the client's individual response.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 43
+    },
+    {
+        "q": "A nurse is assessing a client who is recovering from a stroke. Which of the following findings is a manifestation of dysphagia?",
+        "opts": [
+            "Hoarse voice",
+            "Expressive aphasia",
+            "Continuous smiling",
+            "Weight gain"
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nHoarse voice is a manifestation of dysphagia. When food or liquid enters the airway instead of the esophagus, it can cause changes in voice quality, resulting in a wet, gurgling, or hoarse voice. This is a sign that the client may be aspirating food or liquid into the larynx or trachea.\nExpressive aphasia is a speech disorder caused by damage to Broca's area in the brain, resulting in difficulty producing speech. It is not a manifestation of dysphagia, although it can occur concurrently in stroke patients.\nContinuous smiling is not a manifestation of dysphagia. It may be associated with certain neurological conditions or emotional responses but is not related to swallowing difficulties.\nWeight gain is not a typical manifestation of dysphagia. Dysphagia usually leads to weight loss due to difficulty swallowing and inadequate nutritional intake.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 44
+    },
+    {
+        "q": "A nurse is teaching the family of a school-age child who is obese about complications of childhood obesity. Which of the following conditions should the nurse include in the teaching?",
+        "opts": [
+            "Hypothyroidism",
+            "Juvenile rheumatoid arthritis",
+            "Type 1 diabetes mellitus",
+            "Hypertension"
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\nHypothyroidism is not a complication of childhood obesity. Hypothyroidism can contribute to weight gain, but it is not caused by obesity. It is caused by an underactive thyroid gland.\nJuvenile rheumatoid arthritis is not a complication of childhood obesity. It is an autoimmune disorder that affects the joints and is not directly related to obesity.\nType 1 diabetes mellitus is not a complication of childhood obesity. Type 1 diabetes is an autoimmune disorder in which the immune system destroys insulin-producing cells. It is not caused by obesity. Type 2 diabetes, however, is associated with obesity.\nHypertension is a complication of childhood obesity. Excess body weight increases the workload on the heart and blood vessels, leading to elevated blood pressure. Childhood obesity is associated with increased risk of hypertension, type 2 diabetes, hyperlipidemia, and cardiovascular disease.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 45
+    },
+    {
+        "q": "A nurse is reviewing a client's laboratory results for effectiveness of total parenteral nutrition (TPN). Which of the following laboratory values is the best indicator for the nurse to monitor for short-term effectiveness of the TPN?",
+        "opts": [
+            "Hemoglobin",
+            "Transferrin",
+            "Prealbumin",
+            "Total albumin"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nHemoglobin reflects the oxygen-carrying capacity of the blood and long-term nutritional status. It has a half-life of approximately 120 days, making it a poor indicator of short-term nutritional changes.\nTransferrin is a protein that transports iron in the blood. It has a half-life of 8 to 10 days, which makes it a better short-term indicator than albumin, but not as sensitive as prealbumin for monitoring immediate changes in nutritional status.\nPrealbumin is the best indicator for monitoring short-term effectiveness of TPN. Prealbumin has a short half-life of 2 to 3 days, making it a sensitive indicator of recent changes in protein intake and nutritional status. Normal prealbumin levels are 15 to 36 mg/dL, and levels will respond quickly to changes in nutritional support.\nTotal albumin reflects long-term nutritional status and has a half-life of approximately 20 days. While albumin is an important indicator of nutritional status, it is not the best indicator for short-term effectiveness of TPN due to its longer half-life.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 46
+    },
+    {
+        "q": "A nurse is planning care for a client who has anorexia nervosa. Which of the following actions should the nurse include?",
+        "opts": [
+            "Arrange for someone to remain with the client for 30 min after meals.",
+            "Offer the client a selection of beverages at each meal.",
+            "Inform the client that a weight gain of 2.3 kg (5 lb) per week is expected.",
+            "Encourage the client to participate in developing dietary goals."
+        ],
+        "correct": [
+            3,
+            0
+        ],
+        "rat": "Correct Answer: D\nArranging for someone to remain with the client for 30 min after meals is a good action, as it can prevent the client from purging or exercising excessively after eating. The nurse should provide a supportive and nonjudgmental environment.\nOffering the client a selection of beverages at each meal is not a good action, as it may reduce the client's appetite and intake of solid foods. The nurse should limit the client's fluid intake before and during meals.\nInforming the client that a weight gain of 2.3 kg (5 lb) per week is expected is not appropriate, as it may cause anxiety and resistance in the client. The nurse should set realistic and individualized weight goals and avoid focusing on the number on the scale.\nEncouraging the client to participate in developing dietary goals is the best action, as it can increase the client's sense of control and motivation. The nurse should collaborate with the client, the dietitian, and the mental health team to create a personalized meal plan that meets the client's nutritional and psychological needs.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 47
+    },
+    {
+        "q": "A nurse is providing anticipatory guidance to a client who has phenylketonuria (PKU) and is planning a pregnancy. Which of the following information should the nurse include in the discussion?",
+        "opts": [
+            "\"A low-protein diet should be followed for 3 months prior to conception.\"",
+            "\"Breastfeeding will prevent your baby from developing PKU.\"",
+            "\"Serum bilirubin should be monitored one to two times per month during pregnancy.\"",
+            "\"Diet sodas should not be consumed more than two or three times per week.\""
+        ],
+        "correct": [
+            0,
+            0
+        ],
+        "rat": "Correct Answer: A\nA low-protein diet should be followed for 3 months prior to conception is the correct instruction. Clients with PKU cannot metabolize phenylalanine, an amino acid found in high-protein foods. High levels of phenylalanine can cause intellectual disability and neurological problems in the fetus. A low-protein diet should be started before pregnancy and maintained throughout pregnancy to prevent fetal harm.\nBreastfeeding will not prevent the baby from developing PKU. PKU is a genetic disorder inherited from both parents. Breastfeeding may provide some benefits but will not affect the baby's PKU status.\nSerum bilirubin is not related to PKU. It does not need to be monitored routinely in clients with PKU.\nDiet sodas should be avoided completely by clients with PKU, not just limited to two or three times per week. Diet sodas often contain aspartame, an artificial sweetener that is metabolized into phenylalanine.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 48
+    },
+    {
+        "q": "A nurse is providing teaching to the parents of a 6-month-old infant who is beginning to eat solid foods. The nurse should identify which of the following findings as an indication of an allergic reaction?",
+        "opts": [
+            "Diarrhea",
+            "Bruising",
+            "Fever",
+            "Jaundice"
+        ],
+        "correct": [
+            0,
+            3
+        ],
+        "rat": "Correct Answer: A\nDiarrhea is an indication of an allergic reaction, as it is a sign of gastrointestinal hypersensitivity or intolerance. When an infant is introduced to solid foods and experiences diarrhea, it may indicate that the infant is having an allergic reaction to one of the new foods. The nurse should ask the parents about the infant's food intake, history of allergies, and symptoms of anaphylaxis, such as hives, swelling, or difficulty breathing.\nBruising is not an indication of an allergic reaction. It is a sign of trauma or bleeding disorder. The nurse should examine the infant for other causes of bruising, such as injury, coagulopathy, or leukemia.\nFever is not an indication of an allergic reaction. It is a sign of infection or inflammation. The nurse should assess the infant for other causes of fever, such as ear infection, urinary tract infection, or viral illness.\nJaundice is not an indication of an allergic reaction. It is a sign of liver dysfunction or hemolysis. The nurse should evaluate the infant for other causes of jaundice, such as hepatitis, biliary atresia, or hemolytic anemia.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 49
+    },
+    {
+        "q": "A nurse is caring for a client who has heart failure and has gained 0.9kg (2 lb) over the last 24 hr. Which of the following interventions should the nurse take?",
+        "opts": [
+            "Provide the client with three large meals per day.",
+            "Weigh the client once per week.",
+            "Reduce the client's sodium intake.",
+            "Restrict the client's protein intake."
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nProviding the client with three large meals per day is not appropriate. Large meals can increase the workload on the heart and worsen symptoms in clients with heart failure. The client should be encouraged to eat smaller, more frequent meals.\nWeighing the client once per week is not sufficient for a client with heart failure who has gained 0.9 kg in 24 hours. Clients with heart failure should be weighed daily to monitor for fluid retention. A weight gain of more than 0.9 to 1.4 kg (2 to 3 lb) in 24 hours indicates fluid retention and requires immediate intervention.\nReducing the client's sodium intake is the appropriate intervention. Sodium causes fluid retention, which worsens heart failure symptoms. A sudden weight gain of 0.9 kg (2 lb) in 24 hours indicates fluid retention, likely due to excess sodium intake. Reducing sodium intake helps decrease fluid retention and reduces the workload on the heart.\nRestricting the client's protein intake is not appropriate for a client with heart failure. Adequate protein intake is important for maintaining muscle mass and supporting the immune system in clients with heart failure.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 50
+    },
+    {
+        "q": "A nurse is providing discharge teaching to a client who is 2 days postoperative following a gastric bypass. Which of the following client statements indicates an understanding of the teaching?",
+        "opts": [
+            "\"My meals should eventually include 1/2 cup of raw celery and tomatoes.\"",
+            "\"I should drink at least 100 ounces of fluids per day.\"",
+            "\"My meals should consist of liquids or pureed foods for the first 5 weeks.\"",
+            "\"I should have 2 ounces of protein three times per day.\""
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\n\"My meals should eventually include 1/2 cup of raw celery and tomatoes.\" is not appropriate in the immediate postoperative period. Raw vegetables are difficult to digest and can cause discomfort or complications after gastric bypass surgery. The diet progresses gradually from liquids to soft foods before advancing to raw vegetables.\n\"I should drink at least 100 ounces of fluids per day.\" is not accurate. After gastric bypass surgery, the stomach pouch is very small and cannot accommodate large amounts of fluid at once. The client should sip fluids throughout the day and aim for about 48 to 64 ounces per day, avoiding drinking during meals.\n\"My meals should consist of liquids or pureed foods for the first 5 weeks.\" is the correct statement. After gastric bypass surgery, the diet progresses gradually. The client typically starts with clear liquids, advances to full liquids, then pureed foods, and eventually soft foods before transitioning to regular foods. This progression allows the stomach to heal and prevents complications such as anastomotic leaks.\n\"I should have 2 ounces of protein three times per day.\" is not sufficient protein intake after gastric bypass surgery. Clients typically need 60 to 80 grams of protein per day to prevent protein deficiency and support healing. The protein intake should be spread throughout the day.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 51
+    },
+    {
+        "q": "A nurse is caring for a young adult client who is discontinuing birth control pills and wishes to start a family. Which of the following statements by the nurse is an appropriate dietary guideline?",
+        "opts": [
+            "\"Increase your caloric intake before pregnancy to stabilize your metabolism.\"",
+            "\"Increase folic acid to 400 micrograms per day prior to getting pregnant.\"",
+            "\"Increase your total intake of seafood to 20 ounces per week.\"",
+            "\"Decrease ascorbic acid in your diet.\""
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\nIncreasing caloric intake before pregnancy is not appropriate, as it can lead to excessive weight gain and obesity, which increases the risk of gestational diabetes, hypertension, and other complications.\nIncreasing folic acid to 400 micrograms per day prior to getting pregnant is the appropriate dietary guideline. Folic acid is essential for preventing neural tube defects such as spina bifida and anencephaly in the developing fetus. Women should begin taking folic acid at least one month before conception and continue throughout the first trimester.\nIncreasing seafood intake to 20 ounces per week is not appropriate, as it can expose the client to high levels of mercury, which can harm the developing fetus. The nurse should advise the client to limit seafood intake to 8 to 12 ounces per week and avoid fish high in mercury.\nDecreasing ascorbic acid (vitamin C) in the diet is not appropriate. Vitamin C is important for immune function, iron absorption, and collagen synthesis. Adequate vitamin C intake is beneficial during pregnancy.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 52
+    },
+    {
+        "q": "A nurse is teaching a client who has a new prescription for tetracycline. Which of the following nutritional considerations should the nurse include in the teaching?",
+        "opts": [
+            "Take a folic acid supplement while on this medication.",
+            "Increase vitamin C intake while taking this medication.",
+            "Avoid taking this medication with milk products.",
+            "Eliminate raw fruits and vegetables until 2 weeks after completing this medication."
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nTaking a folic acid supplement is not specifically indicated for clients taking tetracycline. While some antibiotics can affect folate metabolism, this is not a primary concern with tetracycline.\nIncreasing vitamin C intake is not specifically indicated for clients taking tetracycline. While vitamin C supports immune function, it is not a specific requirement for tetracycline therapy.\nAvoiding milk products when taking tetracycline is the correct instruction. Calcium in milk and other dairy products binds to tetracycline in the gastrointestinal tract, forming an insoluble complex that significantly reduces the absorption and effectiveness of the antibiotic. The client should avoid taking tetracycline with milk, cheese, yogurt, or other calcium-rich foods. Antacids containing calcium, magnesium, or aluminum should also be avoided.\nEliminating raw fruits and vegetables is not necessary when taking tetracycline. This is not a standard dietary restriction associated with tetracycline therapy.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 53
+    },
+    {
+        "q": "A nurse is planning care for a client who has a new prescription for total parenteral nutrition (TPN). Which of the following actions should the nurse plan to take?",
+        "opts": [
+            "Remove TPN from the refrigerator 5 min before infusing it.",
+            "Change the dressing around the IV site weekly.",
+            "Change the IV tubing for TPN solution every 72 hr.",
+            "Discard remaining TPN solution that is still infusing after 24 hr."
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\nRemoving TPN from the refrigerator 5 minutes before infusing it is not sufficient. TPN should be removed from the refrigerator 30 to 60 minutes before infusion to allow it to reach room temperature. Infusing cold TPN can cause hypothermia, venous spasm, and patient discomfort.\nChanging the dressing around the IV site weekly is not frequent enough. Central line dressings should be changed every 5 to 7 days for transparent dressings, or every 2 days for gauze dressings, or whenever the dressing becomes soiled, loose, or wet, to prevent infection.\nChanging the IV tubing for TPN solution every 72 hours is not appropriate. IV tubing for TPN should be changed every 24 hours to reduce the risk of bacterial contamination and infection, as TPN is a rich medium for bacterial growth.\nDiscarding remaining TPN solution that is still infusing after 24 hours is the correct action. TPN is a rich medium for bacterial growth, and hanging TPN for more than 24 hours increases the risk of bacterial contamination and infection. Any remaining TPN solution should be discarded after 24 hours and replaced with a fresh bag.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 54
+    },
+    {
+        "q": "A nurse is caring for a client who has myasthenia gravis. Which of the following actions should the nurse take?",
+        "opts": [
+            "Instruct the client to take prescribed anticholinesterase with meals.",
+            "Position the head of the client's bed to 40° while eating.",
+            "Provide the client with food cut into small bites.",
+            "Encourage the client to lie down after eating."
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Correct Answer: B\nInstructing the client to take anticholinesterase with meals is not correct. Anticholinesterase medications should be taken 30 minutes before meals, not with meals. This allows the medication to take effect before eating, improving muscle strength and swallowing ability during the meal.\nPositioning the head of the client's bed to 40° while eating is the correct action. This elevated position helps prevent aspiration and facilitates swallowing in clients with myasthenia gravis, who may have weakened swallowing muscles.\nProviding the client with food cut into small bites is not sufficient to ensure safe and adequate nutrition. The client may still have difficulty swallowing. The nurse should also offer soft, moist, and easy-to-swallow foods and avoid foods that are dry, sticky, or hard.\nEncouraging the client to lie down after eating is not advisable, as it increases the risk of aspiration and reflux. The client should remain upright for at least 30 minutes after eating.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 55
+    },
+    {
+        "q": "A nurse is providing discharge instructions for a client who has a new prescription for spironolactone. Which of the following statements by the client indicates an understanding of the teaching?",
+        "opts": [
+            "\"I should notify the provider if I have increased thirst.\"",
+            "\"I should consume foods high in potassium.\"",
+            "\"I should use a salt substitute to season my foods.\"",
+            "\"I should take this medication at bedtime.\""
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\n\"I should notify the provider if I have increased thirst.\" is the correct statement. Increased thirst can be a sign of dehydration or electrolyte imbalance, which are important concerns for clients taking spironolactone. Spironolactone is a potassium-sparing diuretic that can cause electrolyte imbalances, including hyponatremia, which can cause increased thirst.\n\"I should consume foods high in potassium.\" is not correct for a client taking spironolactone. Spironolactone is a potassium-sparing diuretic, meaning it retains potassium in the body. Consuming additional potassium-rich foods while taking spironolactone can lead to hyperkalemia, which can cause dangerous cardiac arrhythmias.\n\"I should use a salt substitute to season my foods.\" is not appropriate for a client taking spironolactone. Many salt substitutes contain potassium chloride, which can increase potassium levels and lead to hyperkalemia in clients taking potassium-sparing diuretics like spironolactone.\n\"I should take this medication at bedtime.\" is not the standard recommendation for spironolactone. Diuretics are typically taken in the morning to avoid disrupting sleep due to increased urination.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 56
+    },
+    {
+        "q": "A nurse is planning eating strategies with a client who has nausea from equilibrium imbalance. Which of the following strategies should they recommend?",
+        "opts": [
+            "Encourage the client to eat even if nauseated.",
+            "Serve hot foods at mealtime.",
+            "Provide low-fat carbohydrates with meals.",
+            "Limit fluid intake between meals."
+        ],
+        "correct": [
+            2,
+            2
+        ],
+        "rat": "Correct Answer: C\nEncouraging the client to eat even if nauseated is not a helpful strategy. Forcing the client to eat can worsen nausea and vomiting and cause discomfort. The nurse should respect the client's preferences and appetite and offer small, frequent meals.\nServing hot foods at mealtime is not recommended for clients who have nausea. Hot foods can have strong odors and flavors that can trigger nausea and vomiting. Cold or room-temperature foods are more tolerable.\nProviding low-fat carbohydrates with meals is the correct recommendation. Low-fat carbohydrates are easy to digest and can provide energy while helping to reduce nausea. Examples include crackers, toast, rice, and noodles. These foods are bland and less likely to trigger nausea.\nLimiting fluid intake between meals is not a necessary strategy for clients with nausea from equilibrium imbalance. Fluid intake is important to prevent dehydration. The nurse should encourage the client to drink fluids between meals but avoid drinking large amounts with meals, as this can cause bloating and fullness.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 57
+    },
+    {
+        "q": "A nurse is caring for a client who is deficient in vitamin C. The nurse should identify that the client is at risk for which of the following?",
+        "opts": [
+            "Skin breakdown",
+            "Hypertension",
+            "Tachycardia",
+            "Kidney stones"
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nSkin breakdown is the correct answer. Vitamin C is essential for collagen synthesis, which is necessary for maintaining the integrity of skin, blood vessels, and connective tissue. Vitamin C deficiency, known as scurvy, leads to impaired collagen production, which causes skin breakdown, poor wound healing, bleeding gums, and easy bruising. The skin becomes fragile and susceptible to breakdown and infection.\nHypertension is not a direct complication of vitamin C deficiency. In fact, vitamin C may have a modest blood pressure-lowering effect due to its antioxidant properties.\nTachycardia is not a specific complication of vitamin C deficiency. While severe anemia from vitamin C deficiency can increase heart rate, tachycardia is not a primary manifestation.\nKidney stones can actually be a concern with excessive vitamin C intake, not deficiency. High doses of vitamin C can increase urinary oxalate excretion, increasing the risk of calcium oxalate kidney stones.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 58
+    },
+    {
+        "q": "A nurse is caring for a client who has a small-bore jejunostomy tube and is receiving a continuous tube feeding with a high-viscosity formula. Which of the following actions should the nurse take to prevent the tubing from clogging?",
+        "opts": [
+            "Flush the tubing with 10 mL water every 6 hr.",
+            "Administer the feeding by gravity drip.",
+            "Replace the bag and tubing every 24 hr.",
+            "Heat the formula prior to infusion."
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Correct Answer: A\nFlushing the tubing with 10 mL water every 6 hr is the appropriate action to prevent clogging of a small-bore jejunostomy tube. Regular flushing prevents accumulation of formula residue in the tube, maintains tube patency, and helps hydrate the client. The nurse should also flush the tubing before and after medication administration and whenever the feeding is interrupted.\nAdministering the feeding by gravity drip is not appropriate for a client with a small-bore jejunostomy tube receiving a high-viscosity formula. Gravity drip can cause overfeeding, aspiration, and abdominal distension, especially with high-viscosity formulas that require precise flow control. An infusion pump should be used.\nReplacing the bag and tubing every 24 hr does not prevent clogging. The bag and tubing should be replaced every 48 hr or as per facility policy to reduce the risk of infection and contamination.\nHeating the formula prior to infusion is not appropriate. Heating the formula can alter its composition, reduce its nutritional value, and increase the risk of bacterial growth.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 59
+    },
+    {
+        "q": "A nurse is caring for a client who has acute kidney injury and has been prescribed total parenteral nutrition (TPN). When educating the client on the use of TPN, which of the following information should the nurse include?",
+        "opts": [
+            "\"The TPN will ensure that your glucose level stays within the expected range.\"",
+            "\"The TPN is needed because you are burning excessive calories.\"",
+            "\"The TPN will be higher in fats and protein, but lower in carbohydrates.\"",
+            "\"The TPN is needed to bypass your gastrointestinal tract.\""
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D\n\"The TPN will ensure that your glucose level stays within the expected range.\" is incorrect. TPN can actually cause hyperglycemia due to the high concentration of dextrose in the solution. Blood glucose levels should be monitored frequently, and insulin may need to be administered to maintain glucose within the expected range.\n\"The TPN is needed because you are burning excessive calories.\" is incorrect. TPN is not specifically indicated for clients burning excessive calories. TPN is used for clients who cannot receive nutrition through the gastrointestinal tract.\n\"The TPN will be higher in fats and protein, but lower in carbohydrates.\" is incorrect. TPN contains a balanced mixture of macronutrients, including carbohydrates, proteins, and lipids, as well as micronutrients. The composition may be adjusted based on the client's individual needs.\n\"The TPN is needed to bypass your gastrointestinal tract.\" is the correct statement. TPN is a form of nutrition delivered directly into the bloodstream through a central venous catheter, bypassing the gastrointestinal tract. It is used for clients who have impaired or nonfunctional gastrointestinal tracts, such as those with acute kidney injury, bowel obstruction, or short bowel syndrome.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 60
+    },
+    {
+        "q": "A nurse is assessing a client who has received treatment for hypernatremia. Which of the following findings indicates the treatment has been effective?",
+        "opts": [
+            "Urine output 25 mL/hr",
+            "Fatigue",
+            "Firm grip bilaterally",
+            "Weight gain"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Correct Answer: C\nUrine output 25 mL/hr is not a sign of effective treatment for hypernatremia. This is below the normal range of 30 to 50 mL/hr and indicates oliguria, which can be a complication of hypernatremia. The nurse should notify the provider and administer fluids as prescribed.\nFatigue is not a sign of effective treatment for hypernatremia. Fatigue can be a symptom of hypernatremia, as well as dehydration, infection, or other conditions.\nFirm grip bilaterally indicates normal muscle strength, which is a positive sign. Since hypernatremia can cause neuromuscular irritability, weakness, and confusion, a firm bilateral grip suggests that neuromuscular function has improved and the treatment has been effective.\nWeight gain is not necessarily a sign of effective treatment for hypernatremia. While some fluid repletion is expected, excessive weight gain could indicate fluid overload, which is a potential complication of treatment for hypernatremia.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 61
+    },
+    {
+        "q": "A nurse is providing discharge teaching for a client who has cancer. For each type of food, specify if the food is safe or contraindicated for the client who is immunosuppressed from chemotherapy.",
+        "opts": [
+            "Unpasteurized cheese: Contraindicated",
+            "Grilled hot dog: Contraindicated",
+            "High-calorie supplement drink: Safe",
+            "Sushi: Contraindicated",
+            "Cold deli meat sandwich: Contraindicated Unpasteurized cheese is contraindicated for immunosuppressed clients. Unpasteurized dairy products may contain harmful bacteria such as Listeria, E. coli, and Salmonella, which can cause serious infections in immunocompromised clients who lack the ability to fight off these pathogens. Grilled hot dog is contraindicated for immunosuppressed clients. Hot dogs and other processed meats can contain Listeria monocytogenes even after cooking. Immunosuppressed clients should avoid processed meats unless they are heated to steaming hot temperatures immediately before eating. High-calorie supplement drink is safe for immunosuppressed clients. Commercial nutritional supplement drinks are sterile, commercially prepared products that do not contain pathogens. They are beneficial for cancer clients who need additional calories and nutrients to maintain their weight during chemotherapy. Sushi is contraindicated for immunosuppressed clients. Raw fish and seafood can contain harmful bacteria and parasites, such as Salmonella, Vibrio, and Anisakis, which can cause serious infections in immunocompromised clients. Cold deli meat sandwich is contraindicated for immunosuppressed clients. Cold deli meats can be contaminated with Listeria monocytogenes during processing and slicing. Listeria can multiply even at refrigerator temperatures and poses a serious risk to immunocompromised clients. Deli meats should be heated to steaming before consumption."
+        ],
+        "correct": [],
+        "rat": "",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 62
+    },
+    {
+        "q": "Laboratory Results show low Vitamin D (14 ng/mL, normal 25-80 ng/mL) and all other values within normal range. Select 2 dietary recommendations the nurse should include in the client's plan of care.",
+        "opts": [
+            "Orange juice",
+            "Carrots",
+            "Almonds",
+            "Eggs",
+            "Brussels sprouts F. Salmon"
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Correct Answer: D, F\nOrange juice does not provide significant amounts of vitamin D unless it is specifically fortified. While some brands of orange juice are fortified with vitamin D, it is not a primary natural source.\nCarrots are rich in beta-carotene and vitamin A but do not contain significant amounts of vitamin D.\nAlmonds are a good source of vitamin E and healthy fats but do not contain significant amounts of vitamin D.\nEggs are a good natural source of vitamin D, particularly the egg yolk. Eggs also provide high-quality protein, vitamin B12, and other essential nutrients. Including eggs in the diet can help increase vitamin D levels.\nBrussels sprouts are rich in vitamin C, vitamin K, and fiber but do not contain significant amounts of vitamin D.\nSalmon is one of the best natural dietary sources of vitamin D. A 3-ounce serving of salmon provides approximately 570 IU of vitamin D, which is well above the daily recommended intake. Salmon is also an excellent source of omega-3 fatty acids and high-quality protein.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 63
+    },
+    {
+        "q": "A nurse in an outpatient clinic is caring for a client with increasing waist circumference (from 106.7 cm to 114.3 cm) and BMI (from 31 to 33). When reviewing client data, which of the following client findings should the nurse identify as an indication of metabolic syndrome? Select all that apply.",
+        "opts": [
+            "Fasting glucose level",
+            "HDL level",
+            "Triglyceride level",
+            "Blood pressure reading",
+            "Waist circumference measurement"
+        ],
+        "correct": [
+            0,
+            1,
+            2,
+            3,
+            4
+        ],
+        "rat": "Correct Answer: A, B, C, D, E\nFasting glucose level is a criterion for metabolic syndrome. Elevated fasting glucose (≥100 mg/dL) or a diagnosis of type 2 diabetes is one of the five criteria used to diagnose metabolic syndrome. Insulin resistance, which causes elevated blood glucose, is central to the development of metabolic syndrome.\nHDL level is a criterion for metabolic syndrome. Low HDL cholesterol (less than 40 mg/dL in men or less than 50 mg/dL in women) is one of the five criteria for metabolic syndrome. Low HDL is associated with increased cardiovascular risk and insulin resistance.\nTriglyceride level is a criterion for metabolic syndrome. Elevated triglycerides (≥150 mg/dL) is one of the five criteria for metabolic syndrome. High triglycerides are associated with insulin resistance and increased cardiovascular risk.\nBlood pressure reading is a criterion for metabolic syndrome. Elevated blood pressure (≥130/85 mm Hg) or treatment for hypertension is one of the five criteria for metabolic syndrome. Hypertension is closely associated with insulin resistance and obesity.\nWaist circumference measurement is a criterion for metabolic syndrome. Increased waist circumference (≥102 cm in men or ≥88 cm in women) is one of the five criteria for metabolic syndrome and indicates central or abdominal obesity. The client's waist circumference of 114.3 cm (45 in) exceeds the threshold for men, supporting the diagnosis of metabolic syndrome.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 64
+    },
+    {
+        "q": "A nurse is caring for a 72-year-old client with dementia. The client's daughter reports increased forgetfulness and states, \"I often notice uneaten meals in the microwave when I come over to visit.\" The daughter also reports that the client fell 1 month ago and has a wound on their leg that won't heal. On assessment, skin is rough and dry, lungs are clear bilaterally, abdomen is soft and concave, and edema noted to the face and lower extremities. Vital Signs Today: Temperature: 37.7°C (98.9°F) Heart rate: 103/min Respiratory rate: 16/min Blood pressure: 102/68 mm Hg Weight: 65.9 kg (145 lb) Click to highlight the findings that indicate malnutrition.",
+        "opts": [
+            "Uneaten meals in the microwave B. Wound on the leg that won't heal C. Skin is rough and dry D. Lungs are clear bilaterally E. Abdomen is soft and concave F. Edema noted to the face and lower extremities G. Temperature: 37.7°C (98.9°F) H. Heart rate: 103/min I. Respiratory rate: 16/min J. Blood pressure: 102/68 mm Hg K. Weight: 65.9 kg (145 lb) Correct Answers: A, B, C, F Explanation:"
+        ],
+        "correct": [],
+        "rat": "Choice A reason: Uneaten meals in the microwave is a correct finding that indicates malnutrition. The client's dementia is causing them to forget to eat, which directly leads to malnutrition. Consistently uneaten meals are a clear sign that the client is not receiving adequate nutrition to meet their daily requirements. Inadequate food intake is the most direct cause of malnutrition, and this finding should alert the nurse to assess the client's nutritional status further.\nChoice B reason: Wound on the leg that won't heal is a correct finding that indicates malnutrition. Adequate nutrition, particularly protein, vitamin C, and zinc, is essential for wound healing. A non-healing wound suggests that the client lacks the necessary nutrients to support tissue repair and immune function. Malnutrition impairs the inflammatory response, collagen synthesis, and immune defenses needed for wound healing. Without adequate nutrition, wounds cannot progress through the normal stages of healing.\nChoice C reason: Skin is rough and dry is a correct finding that indicates malnutrition. Dry, rough skin is a sign of nutrient deficiencies, particularly deficiencies in essential fatty acids, vitamin A, and adequate hydration. Malnutrition affects skin integrity, moisture, and the ability to maintain a healthy skin barrier. This makes the client more susceptible to skin breakdown, pressure injuries, and infection. Changes in skin texture and condition are classic physical signs of malnutrition.\nChoice D reason: Lungs are clear bilaterally is not a finding that indicates malnutrition. Clear lung sounds are a normal assessment finding and suggest the absence of fluid accumulation, infection, or other respiratory complications. This finding does not indicate nutritional deficiency and should be documented as a normal finding.\nChoice E reason: Abdomen is soft and concave while a concave abdomen may suggest loss of abdominal fat and muscle mass that can be associated with malnutrition, it is not one of the highlighted correct findings for this question. A soft abdomen is a normal finding indicating the absence of rigidity or guarding. The concavity alone is not sufficient to confirm malnutrition without additional clinical evidence.\nChoice F reason: Edema noted to the face and lower extremities is a correct finding that indicates malnutrition. Edema in the context of malnutrition is caused by hypoalbuminemia, which is low serum albumin. When protein intake is inadequate over a prolonged period, albumin levels drop significantly, reducing the oncotic pressure that normally keeps fluid within blood vessels. This causes fluid to shift into the interstitial spaces, resulting in edema, particularly in dependent areas such as the lower extremities and in the face. This type of edema is called nutritional or protein-deficiency edema and is a classic sign of severe protein malnutrition known as kwashiorkor.\nChoice G reason: Temperature of 37.7°C (98.9°F) is not a specific finding that indicates malnutrition. While this temperature is slightly elevated, it is not definitively indicative of malnutrition. It may suggest a mild infection or inflammatory process, which can occur as a complication of malnutrition due to impaired immune function, but temperature elevation alone is not a direct indicator of malnutrition.\nChoice H reason: Heart rate of 103/min indicating mild tachycardia is not a specific finding that indicates malnutrition. While malnutrition can eventually lead to cardiac complications, tachycardia alone is not a specific indicator of malnutrition. It may be related to dehydration, infection, pain, anxiety, or other underlying conditions that are not directly caused by malnutrition.\nChoice I reason: Respiratory rate of 16/min is a normal finding and does not indicate malnutrition. A respiratory rate of 12 to 20 breaths per minute is within the normal range for adults. This finding does not suggest nutritional deficiency and should be documented as a normal vital sign.\nChoice J reason: Blood pressure of 102/68 mm Hg is low and may indicate dehydration or decreased cardiac output. While malnutrition can contribute to low blood pressure over time due to decreased muscle mass and cardiac function, hypotension alone is not a specific indicator of malnutrition in this context. It may be related to other underlying conditions such as dehydration or autonomic dysfunction.\nChoice K reason: Weight of 65.9 kg (145 lb) alone is not a specific finding that indicates malnutrition without knowing the client's height, usual body weight, and recent weight changes. While weight loss is an important indicator of malnutrition, a single weight measurement without comparative data does not confirm malnutrition. The nurse would need to compare this weight to the client's previous weights to determine if significant weight loss has occurred.",
+        "chapName": "ATI RN Nursing Exam Comprehensive Study Guide",
+        "chapter": 7,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 65
+    }
+];
+
+var assessmentsInfo = [{"num": 7, "name": "ATI RN Nursing Exam Comprehensive Study Guide", "count": 65}];
+
+                        var themes = {
+                                1: { dark: "#0d2b6b", mid: "#1a4ba8", accent: "#ffd700", bg: "#eef3ff", border: "#b8ccf0", hover: "#d8e6ff", nav: "#c0d0f0", rat_bg: "#dce8ff", rat_border: "#1a4ba8", text: "#061840" },
+                                2: { dark: "#2a0a4a", mid: "#5e2a84", accent: "#ffb347", bg: "#f4eaff", border: "#d4b8f0", hover: "#e6cdff", nav: "#c4a0f0", rat_bg: "#ebd9ff", rat_border: "#5e2a84", text: "#1a0530" },
+                                3: { dark: "#053b3b", mid: "#0d7a7a", accent: "#ff9f1c", bg: "#e0f7f7", border: "#a0d8d8", hover: "#bdf0f0", nav: "#8fd1d1", rat_bg: "#ccf2f2", rat_border: "#0d7a7a", text: "#022020" },
+                                4: { dark: "#4a0d2b", mid: "#8a1a4b", accent: "#fcc200", bg: "#ffeef4", border: "#f0b8cc", hover: "#ffe6eb", nav: "#f0c0d0", rat_bg: "#ffdce8", rat_border: "#8a1a4b", text: "#2a0518" },
+                                5: { dark: "#1a2238", mid: "#364566", accent: "#ff6b6b", bg: "#edf2f7", border: "#cbd5e1", hover: "#e2e8f0", nav: "#94a3b8", rat_bg: "#f1f5f9", rat_border: "#364566", text: "#0f172a" },
+                                6: { dark: "#06402b", mid: "#107a53", accent: "#ffc107", bg: "#e6f6ee", border: "#a8dfc4", hover: "#c2ead6", nav: "#92d3b5", rat_bg: "#d6f2e2", rat_border: "#107a53", text: "#022416" },
+                                7: { dark: "#3d0c02", mid: "#8b1c08", accent: "#ffb300", bg: "#ffede6", border: "#f4c2b5", hover: "#fce0d4", nav: "#edb1a1", rat_bg: "#fcdbd1", rat_border: "#8b1c08", text: "#2a0701" },
+                                8: { dark: "#3b2313", mid: "#7a4a28", accent: "#3b82f6", bg: "#f5ece4", border: "#d6bbad", hover: "#e8d5c8", nav: "#c4ab9d", rat_bg: "#efe5dd", rat_border: "#7a4a28", text: "#26150a" }
+                        };
+
+                        function applyTheme(chapterId) {
+                                var t = themes[chapterId] || themes[1];
+                                var r = document.documentElement.style;
+                                r.setProperty('--dark', t.dark); r.setProperty('--mid', t.mid);
+                                r.setProperty('--accent', t.accent); r.setProperty('--bg', t.bg);
+                                r.setProperty('--border', t.border); r.setProperty('--hover', t.hover);
+                                r.setProperty('--nav', t.nav); r.setProperty('--rat-bg', t.rat_bg);
+                                r.setProperty('--rat-border', t.rat_border); r.setProperty('--text', t.text);
+                        }
+
+                        function renderQuestion() {
+                                var q = questions[currentQuestion];
+                                applyTheme(q.chapter);
+                                document.getElementById('question').textContent = q.q;
+                                document.getElementById('questionNumber').textContent = q.displayNumber;
+                                document.getElementById('counter').textContent = q.displayNumber + '/65';
+                                document.getElementById('progressBar').style.width = (q.displayNumber / 65 * 100) + '%';
+                                document.getElementById('assessmentName').textContent = 'Assessment ' + q.chapter + ': ' + q.chapName;
+                                document.getElementById('qTypeBadge').textContent = q.correct.length > 1 ? 'SATA' : 'Single';
+                                var resultTag = document.getElementById('resultTag');
+                                resultTag.textContent = ''; resultTag.className = 'result-tag';
+                                document.getElementById('rationaleBar').className = 'rationale-bar';
+                                document.getElementById('rationaleText').textContent = '';
+
+                                var optContainer = document.getElementById('options');
+                                optContainer.innerHTML = '';
+                                var letters = ['A', 'B', 'C', 'D', 'E'];
+                                q.opts.forEach(function (opt, idx) {
+                                        var div = document.createElement('div');
+                                        div.className = 'option'; div.setAttribute('data-idx', idx);
+                                        var letter = document.createElement('div');
+                                        letter.className = 'option-letter'; letter.textContent = letters[idx];
+                                        var text = document.createElement('div'); text.textContent = opt;
+                                        div.appendChild(letter); div.appendChild(text);
+                                        div.onclick = function () { selectOption(idx); };
+                                        optContainer.appendChild(div);
+                                });
+
+                                document.getElementById('selectedCount').textContent = '';
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                selectedOptions = []; answered = false;
+                                document.getElementById('prevBtn').disabled = currentQuestion === 0;
+                                document.getElementById('skipBtn').style.display = 'flex';
+                                document.getElementById('skipBtn').disabled = currentQuestion === questions.length - 1;
+                                document.getElementById('nextBtn').textContent = 'Submit';
+                                document.getElementById('nextBtn').disabled = false;
+                        }
+
+                        function selectOption(idx) {
+                                if (answered) return;
+                                var q = questions[currentQuestion];
+                                if (q.correct.length > 1) {
+                                        var pos = selectedOptions.indexOf(idx);
+                                        if (pos === -1) selectedOptions.push(idx); else selectedOptions.splice(pos, 1);
+                                        document.getElementById('selectedCount').textContent = selectedOptions.length + ' option(s) selected';
+                                        var opts = document.querySelectorAll('.option');
+                                        opts.forEach(function (o) { o.className = 'option'; });
+                                        selectedOptions.forEach(function (i) { opts[i].className = 'option selected'; });
+                                        document.getElementById('cancelBtn').className = selectedOptions.length > 0 ? 'btn btn-cancel show' : 'btn btn-cancel';
+                                        document.getElementById('nextBtn').textContent = 'Submit';
+                                } else {
+                                        selectedOptions = [idx];
+                                        submitAnswer();
+                                }
+                        }
+
+                        function cancelSelection() {
+                                selectedOptions = [];
+                                document.querySelectorAll('.option').forEach(function (o) { o.className = 'option'; });
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                document.getElementById('selectedCount').textContent = '';
+                                document.getElementById('nextBtn').textContent = 'Submit';
+                        }
+
+                        function submitAnswer() {
+                                if (selectedOptions.length === 0) return;
+                                var q = questions[currentQuestion];
+                                answered = true;
+                                var correct = q.correct;
+                                var isCorrect = selectedOptions.length === correct.length &&
+                                        selectedOptions.every(function (i) { return correct.indexOf(i) !== -1; });
+                                document.querySelectorAll('.option').forEach(function (o) {
+                                        var idx = parseInt(o.getAttribute('data-idx'));
+                                        if (correct.indexOf(idx) !== -1) o.className = 'option correct';
+                                        else if (selectedOptions.indexOf(idx) !== -1) o.className = 'option incorrect';
+                                });
+                                var resultTag = document.getElementById('resultTag');
+                                resultTag.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
+                                resultTag.className = 'result-tag ' + (isCorrect ? 'correct' : 'incorrect');
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                document.getElementById('skipBtn').style.display = 'none';
+                                document.getElementById('nextBtn').textContent = 'Next →';
+                                if (q.rat) {
+                                        document.getElementById('rationaleText').textContent = q.rat;
+                                        document.getElementById('rationaleBar').className = 'rationale-bar show';
+                                }
+                        }
+
+                        window.nextCard = function () {
+                                if (!answered) { if (selectedOptions.length > 0) submitAnswer(); }
+                                else { if (currentQuestion < questions.length - 1) { currentQuestion++; renderQuestion(); } }
+                        };
+                        window.skipCard = function () {
+                                if (!answered && currentQuestion < questions.length - 1) { currentQuestion++; renderQuestion(); }
+                        };
+                        window.previousCard = function () {
+                                if (currentQuestion > 0) { currentQuestion--; renderQuestion(); }
+                        };
+                        window.randomCard = function () {
+                                currentQuestion = Math.floor(Math.random() * questions.length); renderQuestion();
+                        };
+
+                        window.openAssessmentModal = function () {
+                                var grid = document.getElementById('assessmentGrid');
+                                grid.innerHTML = '';
+                                assessmentsInfo.forEach(function (ch) {
+                                        var card = document.createElement('div');
+                                        card.className = 'as-card';
+                                        card.setAttribute('data-ch', ch.num);
+                                        card.setAttribute('data-name', ch.name.toLowerCase());
+                                        var numEl = document.createElement('div'); numEl.className = 'as-num'; numEl.textContent = ch.num;
+                                        var infoEl = document.createElement('div'); infoEl.className = 'as-info';
+                                        var titleEl = document.createElement('div'); titleEl.className = 'as-title'; titleEl.textContent = ch.name;
+                                        var countEl = document.createElement('div'); countEl.className = 'as-count'; countEl.textContent = ch.count + ' questions';
+                                        infoEl.appendChild(titleEl); infoEl.appendChild(countEl);
+                                        card.appendChild(numEl); card.appendChild(infoEl);
+                                        card.onclick = function () {
+                                                var idx = questions.findIndex(function (q) { return q.chapter === ch.num; });
+                                                if (idx !== -1) { currentQuestion = idx; renderQuestion(); }
+                                                closeAssessmentModal();
+                                        };
+                                        grid.appendChild(card);
+                                });
+                                document.getElementById('chSearch').value = '';
+                                document.getElementById('chapterModal').className = 'modal-overlay open';
+                        };
+                        window.closeAssessmentModal = function () {
+                                document.getElementById('chapterModal').className = 'modal-overlay';
+                        };
+                        window.filterAssessments = function (val) {
+                                var v = val.toLowerCase();
+                                document.querySelectorAll('.as-card').forEach(function (card) {
+                                        var match = card.getAttribute('data-name').includes(v) || card.getAttribute('data-ch').includes(v);
+                                        card.className = match ? 'as-card' : 'as-card hidden';
+                                });
+                        };
+
+                        document.getElementById('chapterModal').addEventListener('click', function (e) {
+                                if (e.target === this) closeAssessmentModal();
+                        });
+                        document.addEventListener('keydown', function (e) {
+                                if (e.key === 'ArrowRight') nextCard();
+                                else if (e.key === 'ArrowLeft') previousCard();
+                                else if (e.key === 'Escape') closeAssessmentModal();
+                                else if (['1', '2', '3', '4'].includes(e.key) && !answered) {
+                                        var idx = parseInt(e.key) - 1;
+                                        if (idx < questions[currentQuestion].opts.length) selectOption(idx);
+                                }
+                                else if (e.key === 'Enter') nextCard();
+                        });
+
+                        renderQuestion();
+                })();
+        </script>
+</body>
+
+</html>
